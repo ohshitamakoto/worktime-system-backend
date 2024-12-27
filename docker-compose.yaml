@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  work_board:
+    build: ./
+    image: work_board
+    container_name: work_board
+    volumes:
+      - type: bind
+        source: "C:/Users/7003861.PCC-AD/OneDrive - Panasonic/share_data"
+        target: "/app/time"
+    ports:
+      - "5001:5001"
+

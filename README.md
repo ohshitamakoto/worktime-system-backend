@@ -1,4 +1,4 @@
-# new_backend
+# backend
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/psnrd/aisol/35k/work_time/2025_worktime/new_backend.git
+git remote add origin https://gitlab.com/psnrd/aisol/35k/work_time/2025_worktime/backend.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/psnrd/aisol/35k/work_time/2025_worktime/new_backend/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.com/psnrd/aisol/35k/work_time/2025_worktime/backend/-/settings/integrations)
 
 ## Collaborate with your team
 
