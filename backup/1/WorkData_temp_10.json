@@ -12,7 +12,7 @@
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
             "Id": 0,
-            "Value": "退勤"
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -30,14 +30,14 @@
             "Value": "-"
         },
         "work_s_time": "9:00",
-        "work_e_time": "17:30.",
+        "work_e_time": "",
         "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2024/07/16 20:00:00"
+        "get_time": "2025/01/21 19:29:59"
     },
     {
         "name": "None",

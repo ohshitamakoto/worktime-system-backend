@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request,make_response
 from flask import request, make_response, jsonify
 import json
-import datetime
+from  datetime import datetime, timedelta
 import os
 import shutil
+from dotenv import load_dotenv
+load_dotenv()
+global_time_s = os.getenv('G_TIME_S')
 
 # 出社勤務(work),出社(office),在宅,出張,年休
 chart_list = [
@@ -69,7 +72,7 @@ def makeDisplayJson(j_str):
 
 
     #### 勤務時間を編集　フレックス時間を反映（予定は含まない）###
-    start_time = "9:00"
+    start_time = global_time_s
     end_time = ""
 
     ##年休の場合時間は空白
@@ -160,7 +163,8 @@ def get_work_39():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("39",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("39",switch["num"],lstate)
         return ret
 @app.route("/37", methods=['GET', "POST"])
 def get_work_37():
@@ -172,7 +176,8 @@ def get_work_37():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("37",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("37",switch["num"],lstate)
         return ret
 @app.route("/36", methods=['GET', "POST"])
 def get_work_36():
@@ -184,8 +189,10 @@ def get_work_36():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("36",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("36",switch["num"],lstate)
         return ret
+    
 @app.route("/35", methods=['GET', "POST"])
 def get_work_35():
     if request.method == "GET":
@@ -197,9 +204,26 @@ def get_work_35():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("35",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("35",switch["num"],lstate)
         return ret
-
+def json_analyze(json):
+    if "state" in json:
+        return json["state"]
+    else:
+        return ""
+@app.route("/history", methods=['GET', "POST"])
+def get_workhis():
+    if request.method == "GET":
+        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/history/new_work_his_35.json"
+        return get_workhis(file_json,"35","")
+    else:
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        print(switch["name"],switch["sect"])
+        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/history/new_work_his_35.json"
+        return get_workhis(file_json,switch["sect"],switch["name"])
+    
 @app.route("/34", methods=['GET', "POST"])
 def get_work_34():
     if request.method == "GET":
@@ -210,7 +234,8 @@ def get_work_34():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("34",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("34",switch["num"],lstate)
         return ret
 @app.route("/33", methods=['GET', "POST"])
 def get_work_33():
@@ -222,7 +247,8 @@ def get_work_33():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("33",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("33",switch["num"],lstate)
         return ret
 @app.route("/32", methods=['GET', "POST"])
 def get_work_32():
@@ -234,7 +260,8 @@ def get_work_32():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("32",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("32",switch["num"],lstate)
         return ret
 @app.route("/31", methods=['GET', "POST"])
 def get_work_31():
@@ -246,7 +273,8 @@ def get_work_31():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("31",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("31",switch["num"],lstate)
         return ret
 @app.route("/30", methods=['GET', "POST"])
 def get_work_30():
@@ -258,7 +286,8 @@ def get_work_30():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("30",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("30",switch["num"],lstate)
         return ret
 @app.route("/10", methods=['GET', "POST"])
 def get_work_10():
@@ -270,7 +299,8 @@ def get_work_10():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("10",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("10",switch["num"],lstate)
         return ret
 @app.route("/11", methods=['GET', "POST"])
 def get_work_11():
@@ -282,7 +312,8 @@ def get_work_11():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("11",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("11",switch["num"],lstate)
         return ret
 @app.route("/14", methods=['GET', "POST"])
 def get_work_14():
@@ -294,7 +325,8 @@ def get_work_14():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("14",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("14",switch["num"],lstate)
         return ret
 @app.route("/15", methods=['GET', "POST"])
 def get_work_15():
@@ -306,7 +338,8 @@ def get_work_15():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("15",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("15",switch["num"],lstate)
         return ret
 @app.route("/20", methods=['GET', "POST"])
 def get_work_20():
@@ -318,7 +351,8 @@ def get_work_20():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("20",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("20",switch["num"],lstate)
         return ret
 @app.route("/21", methods=['GET', "POST"])
 def get_work_21():
@@ -330,7 +364,8 @@ def get_work_21():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("21",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("21",switch["num"],lstate)
         return ret
 @app.route("/22", methods=['GET', "POST"])
 def get_work_22():
@@ -342,7 +377,8 @@ def get_work_22():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("22",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("22",switch["num"],lstate)
         return ret
 @app.route("/23", methods=['GET', "POST"])
 def get_work_23():
@@ -354,7 +390,8 @@ def get_work_23():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("23",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("23",switch["num"],lstate)
         return ret
 @app.route("/24", methods=['GET', "POST"])
 def get_work_24():
@@ -366,13 +403,21 @@ def get_work_24():
         switch = json.loads(switch)
         
         print(switch["num"])
-        ret = post_kintai_state("24",switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("24",switch["num"],lstate)
         return ret
-@app.route("/content", methods=['GET'])
+@app.route("/content", methods=['GET', "POST"])
 def get_work_content():
-    #file_json = "./time/work_34.json"
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_content.json"
-    return get_work_content(file_json)
+    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/content.json"
+    if request.method == "GET":
+        return get_work_content(file_json)
+    else:
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        print(switch["msg"],switch["tenki"])
+        lmsg = switch["msg"]
+        ltenki = switch["tenki"]
+        return set_work_content(file_json,lmsg,ltenki)
 
 @app.route("/seat", methods=['GET'])
 def get_work_seat():
@@ -389,16 +434,6 @@ def get_work_seat_s2f():
     file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/s_2f_zaseki.json"
     return get_seat_info(file_json,'./SeatData_s2f_temp.json',"./teams_data/SendaiSeatData_s2f.json",1)
 
-#@app.route("/seat_k_7fs", methods=['GET'])
-#def get_work_seat_k7fs():
-#    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/k_zaseki_7fs.json"
-#    return get_seat_info(file_json,'./SeatData_k7fs_temp.json',"./teams_data/KanazawaSeatData_k7fs.json",2)
-
-#@app.route("/seat_k_7fp", methods=['GET'])
-#def get_work_seat_k7fp():
-#    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/k_zaseki_7fp.json"
-#    return get_seat_info(file_json,'./SeatData_k7fp_temp.json',"./teams_data/KanazawaSeatData_k7fp.json",3)
-
 @app.route("/seat_k_7fs2", methods=['GET'])
 def get_work_seat_k7fs2():
     file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/k_zaseki_7fs_2.json"
@@ -413,6 +448,52 @@ def get_work_seat_k7fp2():
 def get_work_seat_h():
     file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/h_zaseki.json"
     return get_seat_info(file_json,'./SeatData_h_temp.json',"./teams_data/KanazawaSeatData_h.json",4)
+
+@app.route("/seat_h_free4f", methods=['GET', "POST"])
+def get_work_seat_h_free4f():
+    if request.method == "GET":
+        return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/hamamatsuSeatData_h_free4f.json",4)
+    else:
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        print(switch["name"],switch["sect"],switch["no"])
+        lname = switch["name"]
+        lname = lname.replace(' ','')
+        lsect = switch["sect"]
+        lno = int(switch["no"])
+        return make_freeseat_data('./SeatFreeData4f_temp.json',lsect,"POST",lname,lno)
+        #return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
+
+@app.route("/seat_h_free5f", methods=['GET', "POST"])
+def get_work_seat_h_free5f():
+    if request.method == "GET":
+        return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
+    else:
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        print(switch["name"],switch["sect"],switch["no"])
+        lname = switch["name"]
+        lname = lname.replace(' ','')
+        lsect = switch["sect"]
+        lno = int(switch["no"])
+        return make_freeseat_data('./SeatFreeData5f_temp.json',lsect,"POST",lname,lno)
+        #return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
+
+@app.route("/seat_h_free6f", methods=['GET', "POST"])
+def get_work_seat_h_free6f():
+    if request.method == "GET":
+        #make_freeseat_data("","","RESET","","")
+        return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
+    else:
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        print(switch["name"],switch["sect"],switch["no"])
+        lname = switch["name"]
+        lname = lname.replace(' ','')
+        lsect = switch["sect"]
+        lno = int(switch["no"])
+        return make_freeseat_data('./SeatFreeData6f_temp.json',lsect,"POST",lname,lno)
+        #return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/hamamatsuSeatData_h_free6f.json",4)
 
 @app.route("/w_info", methods=['GET'])
 def get_work_w_info():
@@ -456,7 +537,7 @@ def get_work_w_info():
     dict_ret[3]["trip"] = chart_list[4][3]
     dict_ret[3]["rest"] = chart_list[4][4]
     dict_ret[3]["work_1"] = chart_list[4][0]
-    #print(chart_list)
+
     return make_response(jsonify(dict_ret))
 
 environment_info_co = "-"
@@ -479,10 +560,10 @@ def get_environment():
     return jsonify({"result": "ok"})
 
 
-def post_kintai_state(sect, id):
+def post_kintai_state(sect, id, w_st):
     #変換用のJSONファイル名設定
     file_json = './teams_data/WorkData_temp_' + sect + '.json'
-    now = datetime.datetime.now() # 現在時刻の取得
+    now = datetime.now() # 現在時刻の取得
     n_time = now.strftime('%H:%M') + '.'
     #print(n_time)
 
@@ -503,13 +584,19 @@ def post_kintai_state(sect, id):
         state = dict_src_json[id]["state"]["Value"]
         name = dict_src_json[id]["name"]["DisplayName"]
 
-        if "出社勤務中" in state:
-            new_state = state.replace('出社勤務中','退勤')
-            time = n_time
-        elif "出社" in state:
-            new_state = state.replace('出社','出社勤務中')
+        if w_st == "出社":
+            if "出社勤務中" not in state and "出社" in state:
+                new_state = state.replace('出社','出社勤務中')
+            else:
+                new_state = state
         else:
-            new_state = state.replace('退勤','出社')
+            if "出社勤務中" in state:
+                new_state = state.replace('出社勤務中','退勤')
+                time = n_time
+            elif "出社" in state:
+                new_state = state.replace('出社','出社勤務中')
+            else:
+                new_state = state.replace('退勤','出社')
 
         #print(name,":",state,"->",new_state,time)
         dict_src_json[id]["state"]["Value"] = new_state
@@ -539,7 +626,7 @@ file_update_time2 = [""]
 def get_work_content(path):
     #前回からファイルが更新されたか確認
     t = os.path.getmtime(path)
-    d = datetime.datetime.fromtimestamp(t)
+    d = datetime.fromtimestamp(t)
  
     #ファイル時間更新
     file_update_time2 = str(d)
@@ -554,6 +641,33 @@ def get_work_content(path):
 
     return make_response(jsonify(dict_aa))
 
+def set_work_content(path,lmsg,ltenki):
+    #TEAMSのJSONファイル読込
+    file_json = path
+
+    fp_in = open (file_json,encoding='utf-8')
+    json_str = fp_in.read()
+    dict_src = json.loads(json_str)
+    fp_in.close()
+
+    #データ異常処理
+    if ltenki not in "we_on" and ltenki not in "we_off":
+        print("データ異常処理",lmsg,ltenki)
+        return make_response(jsonify(dict_src))
+
+    fp_in = open (file_json,'w', encoding='utf-8')
+
+    fp_in.write('[{')    #JSON開始
+    w_data = '"msg":"' + lmsg +'"'
+    fp_in.write(w_data)    #JSON開始
+    fp_in.write(',')    #JSON開始
+    w_data = '"tenki":"' + ltenki +'"'
+    fp_in.write(w_data)    #JSON開始
+    print(dict_src)
+    fp_in.write('}]')    #JSON開始
+    fp_in.close()
+
+    return make_response(jsonify(dict_src))
 
 def get_seat_info(path,tmp_path,out_f,place_num):
     #チャート用集計リスト初期化
@@ -605,8 +719,11 @@ def get_seat_info(path,tmp_path,out_f,place_num):
     get_work(file_json,"21")
     file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_22.json"
     get_work(file_json,"22")
+    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_23.json"
+    get_work(file_json,"23")
     file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_24.json"
     get_work(file_json,"24")
+
     #仙台座席用JSONアップデート
     #33,35,36,37課データから1つのJSONファイル作成
     input_files = ["./teams_data/WorkData_temp_30.json",
@@ -625,6 +742,7 @@ def get_seat_info(path,tmp_path,out_f,place_num):
                    "./teams_data/WorkData_temp_20.json",
                    "./teams_data/WorkData_temp_21.json",
                    "./teams_data/WorkData_temp_22.json",
+                   "./teams_data/WorkData_temp_23.json",
                    "./teams_data/WorkData_temp_24.json"]
     #output_file = "./teams_data/SendaiSeatData.json"
     output_file = out_f
@@ -647,7 +765,7 @@ def get_seat_info(path,tmp_path,out_f,place_num):
 
             #勤怠JSONから状態を設定
             sate,name,sub,chart_data = get_kintai_state(seat_name,dict_kintai_json)
-
+            
             if chart_data <= 4:
                 chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
             #print(seat_name, sate)
@@ -747,7 +865,8 @@ def combine_json_files(input_files, output_file):
                 #if has_more or i < len(input_files) - 1:
                 if first != 0 and list["name"] != "None":
                     f.write(',')
-                first = 1
+                if list["name"] != "None":
+                    first = 1
                 if list["name"] != "None":
                     make = makeDisplayJson(list)
                     json.dump(make, f, indent=2, ensure_ascii=False)
@@ -770,6 +889,154 @@ def get_value_from_json( parent_data, key_list):
         parent_data = value
     return value
 
+def make_freeseat_data(path,sect,kind,name,no):
+    if kind == "POST":
+        print("POST",path,10)
+        fp_zaseki = open (path,encoding='utf-8')
+        json_str = fp_zaseki.read()
+        dict_src_json = json.loads(json_str)
+        fp_zaseki.close()
+
+        if dict_src_json[no]["name"] != "机" and name != "机":
+            return "座席を指定できませんでした。固定席または既に指定済みの席です。"
+        else:
+            dict_src_json[no]["name"] = name
+            dict_src_json[no]["sect"] = sect
+
+        with open(path, "w") as json_file:
+            json.dump(dict_src_json, json_file, indent=4)
+        make_response(jsonify(dict_src_json))
+        return "OK"
+    elif kind == "RESET": #RESET
+        # sahreフォルダの座席情報から当日の座席情報を作成
+        # 浜松4Fベースデータ作成
+        print("RESET",path)
+        path = R"C:/Users/7003861/OneDrive - Panasonic/share_data/seatinfo/hamamatsu_zaseki4f.json"
+        file_json = './SeatFreeData4f_temp.json'
+        try:
+            shutil.copy(path,file_json)
+        except FileNotFoundError:
+            print("指定されたファイルが見つかりません")
+
+        # 浜松5Fベースデータ作成
+        path = R"C:/Users/7003861/OneDrive - Panasonic/share_data/seatinfo/hamamatsu_zaseki5f.json"
+        file_json = './SeatFreeData5f_temp.json'
+        try:
+            shutil.copy(path,file_json)
+        except FileNotFoundError:
+            print("指定されたファイルが見つかりません")
+
+        # 浜松6Fベースデータ作成
+        path = R"C:/Users/7003861/OneDrive - Panasonic/share_data/seatinfo/hamamatsu_zaseki6f.json"
+        file_json = './SeatFreeData6f_temp.json'
+        try:
+            shutil.copy(path,file_json)
+        except FileNotFoundError:
+            print("指定されたファイルが見つかりません")
+        print("GET")
+    else:
+        print("処理なし")
+
+    return "OK"
+
+### 申請履歴情報
+
+def get_workhis(path,no,name):
+    history_list = ["not supported","not supported","not supported","not supported","not supported"]
+    day_name = ["（月）","（火）","（水）","（木）","（金）","（土）","（日）"]
+    if (os.path.exists(path)) == False:
+        person_history = {
+        "day1":history_list[0],
+        "day2":history_list[1],
+        "day3":history_list[2],
+        "day4":history_list[3],
+        "day5":history_list[4],
+        "name":name
+        }
+        ## JSONファイルを返却
+        return json.dumps(person_history)
+
+    ## 今日の日付設定
+    now = datetime.now() # 現在時刻の取得
+    dow =  now.weekday()
+    n_time = now.strftime('%Y%m%d') + day_name[dow]
+    history_list[0] = now - timedelta(days=1)
+    dow =  history_list[0].weekday()
+    history_list[0] = history_list[0].strftime('%Y%m%d') + day_name[dow]
+    history_list[1] = n_time
+    history_list[2] = now + timedelta(days=1)
+    dow =  history_list[2].weekday()
+    history_list[2] = history_list[2].strftime('%Y%m%d') + day_name[dow]
+    history_list[3] = now + timedelta(days=2)
+    dow =  history_list[3].weekday()
+    history_list[3] = history_list[3].strftime('%Y%m%d') + day_name[dow]
+    history_list[4] = now + timedelta(days=3)
+    dow =  history_list[4].weekday()
+    history_list[4] = history_list[4].strftime('%Y%m%d') + day_name[dow]
+
+    g_name = name.replace(' ','')
+    print(g_name)
+
+    ## 申請履歴のJSONファイル読み込み
+    file_json = path
+    fp_in = open (file_json,encoding='utf-8')
+    json_str = fp_in.read()
+    fp_in.close()
+    json_list = json.loads(json_str)
+
+    ## 該当者のファイルのみ抽出
+    # 氏名判定
+    for list, has_more in lookahead(json_list):
+        l_name = list["name"]["DisplayName"]
+        l_name = l_name.replace(' ','')
+
+        if g_name in l_name:
+            ## 一致した場合、日付判定
+            for i in range(len(history_list)):     #列数繰り返し
+                print(list["get_date"])
+                # 勤務状態設定
+                if str(list["get_date"]) in history_list[i]:
+                    history_list[i] = history_list[i] + ":" +list["state"]["Value"]
+                    # フレックス情報設定
+                    if str(list["flex"]["Value"]) == "有":
+                        l_flex = str(list["flex_s_time"]) + "~" + str(list["flex_e_time"])
+                        l_flex = l_flex.replace('フレ：','')
+                        l_flex = l_flex.replace('\u3000','')
+                        history_list[i] = history_list[i] + "(フレックス " + l_flex + ")"
+                        #history_list[i] = history_list[i].encode(encoding='utf-8')
+                    # 時間休情報設定
+                    if str(list["time_off"]["Value"]) == "有":
+                        history_list[i] = history_list[i] + "(時間休 " + str(list["time_off_s_time"]) + str(list["time_off_e_time"])  + ")"
+            print(history_list)
+
+    for i in range(len(history_list)):     #列数繰り返し
+        if "土" in history_list[i] or "日" in history_list[i]:
+            history_list[i] = history_list[i] + ":-----"
+        if len(history_list[i]) <= 11:
+            history_list[i] = history_list[i] + ":出社"
+        #年月日挿入
+        tmp_str = history_list[i]
+        l_day = tmp_str[6:8] + "日"
+        l_mon = tmp_str[4:6] + "月"
+        l_year = tmp_str[0:4] + "年"
+        history_list[i] = l_year + l_mon + l_day + tmp_str[8:]
+
+    ## 当日-1日+3日間の計5日間のリストを作成
+    person_history = {
+        "day1":history_list[0],
+        "day2":history_list[1],
+        "day3":history_list[2],
+        "day4":history_list[3],
+        "day5":history_list[4],
+        "name":name
+    }
+    
+    print(person_history)
+
+    ## JSONファイルを返却
+
+    return json.dumps(person_history)
+
 file_update_time = ["no","no","no","no","no","no","no","no","no","no",
                     "no","no","no","no","no","no","no","no","no","no",
                     "no","no","no","no","no","no","no","no","no","no",
@@ -787,14 +1054,14 @@ def get_work(path,no):
     state_reset = "no"
     day_reset = "no"
 
-    now = datetime.datetime.now() # 現在時刻の取得
+    now = datetime.now() # 現在時刻の取得
     n_time = now.strftime('%Y/%m/%d')
     #print(now)
     
     file_temp = R"C:/Users/7003861/OneDrive - Panasonic/worktime/last_time.txt"
     
     up_t = os.path.getmtime(file_temp)
-    up_t_int = datetime.datetime.fromtimestamp(up_t)
+    up_t_int = datetime.fromtimestamp(up_t)
     up_t_str = str(up_t_int)
     up_t_str = up_t_str[:10]
     up_t_str = up_t_str.replace("-", '/') 
@@ -835,7 +1102,7 @@ def get_work(path,no):
     except OSError as e:
         print("teams JSON ファイル読み込みエラー")
         return "JSON ERROR 01"
-    d = datetime.datetime.fromtimestamp(t)
+    d = datetime.fromtimestamp(t)
 
     #変換用のJSONファイル名設定
     file_name = './teams_data/WorkData_temp_' + no + '.json'
@@ -846,20 +1113,7 @@ def get_work(path,no):
         info_file_state = "error"
         d = "9999"  #異常値設定し次のif文を回避
     
-    #if(info_file_state != "error"):
-    #    d2 = datetime.datetime.fromtimestamp(t2)
 
-    #    last_date = str(d) #ファイル更新日付を取得
-    #    last_date = last_date[:10]
-    #    now_date = str(d2) #ファイル更新日付を取得
-    #    now_date = now_date[:10]
-
-        #if(last_date != now_date):
-        #    state_reset = "yes"
-    #else:
-    #    d = "9999"  #異常値設定し次のif文を回避
-    
-    #print(d,file_update_time[31-int(no)],last_date,now_date)
     #d = "9999"  #異常値設定し次のif文を回避
     #日付が更新された場合はリセット
     
@@ -968,7 +1222,7 @@ def get_work(path,no):
         print("JSON日付:",json_date,"現在日付",n_time)
         file_update_time[ int(no)] = "no"
         json_update = "ng"
-
+    
     #日付が変わったらリセット
     if(state_reset == "no"):
         
@@ -1035,17 +1289,24 @@ def get_work(path,no):
         if day_reset == "yes":
             #ファイルをバックアップ
             #カウントファイルを読み込む
-            file_temp = R"C:\Project\WorkSchedule\work_flaskpj\source-code\backup\last_backup_cnt.txt"
+            file_temp = R"C:\Work_PSNRD\source_code-main\backend\new_backend\backup\last_backup_cnt.txt"
 
             f = open(file_temp,'r')
             tmp_cnt = f.read()
             last_cnt = int(tmp_cnt)
             f.close()
 
-            last_cnt = last_cnt + 1
+            no_cnt = 0
+            for cnt in range(len(file_state_reset)):
+                if file_state_reset[ cnt ] == "no":
+                    no_cnt = no_cnt + 1
+            if no_cnt < 2:
+                print("リセット１回目！！！",no_cnt)
+                last_cnt = last_cnt + 1
+                make_freeseat_data("","","RESET","","") #フリー座席リセット
             if last_cnt > 5:
                 last_cnt = 1
-            print(last_cnt)
+            print("リセットカウント",last_cnt)
             f = open(file_temp,'w')
             f.write(str(last_cnt))
             f.close()
