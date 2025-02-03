@@ -7,15 +7,20 @@ import shutil
 from dotenv import load_dotenv
 load_dotenv()
 global_time_s = os.getenv('G_TIME_S')
-
+global_cloud_dir = os.getenv('G_CLOUD_DIR')
+global_local_dir = os.getenv('G_LOCAL_DIR')
+global_pass = os.getenv('G_PASS')
 # 出社勤務(work),出社(office),在宅,出張,年休
 chart_list = [
     [0, 0, 0, 0, 0], #仙台3F
     [0, 0, 0, 0, 0], #仙台2F
     [0, 0, 0, 0, 0], #金沢7F 駅側
     [0, 0, 0, 0, 0], #金沢7F 県庁側
-    [0, 0, 0, 0, 0], #浜松
-    [0, 0, 0, 0, 0]  #定禅寺
+    [0, 0, 0, 0, 0], #定禅寺
+    [0, 0, 0, 0, 0], #浜松4F
+    [0, 0, 0, 0, 0], #浜松5F
+    [0, 0, 0, 0, 0], #浜松6F
+    [0, 0, 0, 0, 0]  #浜松ダミー
 ]
 
 app = Flask(__name__)
@@ -156,7 +161,7 @@ def makeDisplayJson(j_str):
 @app.route("/39", methods=['GET', "POST"])
 def get_work_39():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_39.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_39.json"
         return get_work(file_json,"39")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -169,7 +174,7 @@ def get_work_39():
 @app.route("/37", methods=['GET', "POST"])
 def get_work_37():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_37.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_37.json"
         return get_work(file_json,"37")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -182,7 +187,7 @@ def get_work_37():
 @app.route("/36", methods=['GET', "POST"])
 def get_work_36():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_36.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_36.json"
         return get_work(file_json,"36")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -197,7 +202,7 @@ def get_work_36():
 def get_work_35():
     if request.method == "GET":
         #file_json = "./time/work_35.json"
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_35.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_35.json"
         return get_work(file_json,"35")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -207,27 +212,95 @@ def get_work_35():
         lstate = json_analyze(switch)
         ret = post_kintai_state("35",switch["num"],lstate)
         return ret
+
+## 定禅寺オフィスメンバ
+@app.route("/50", methods=['GET', "POST"])
+def get_work_50():
+    if request.method == "GET":
+        file_json = R""+ global_cloud_dir + "share_data/new_work_35.json"
+        get_work(file_json,"35")
+        file_json = R""+ global_cloud_dir + "share_data/new_work_36.json"
+        get_work(file_json,"36")
+        file_json_1 = "./teams_data/WorkData_temp_35.json"
+        file_json_2 = "./teams_data/WorkData_temp_36.json"
+        combined_json = "./teams_data/WorkData_temp_50.json"
+        return combine_sect_json(file_json_1, file_json_2, combined_json)
+    else:
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        
+        print(switch["num"])
+        lstate = json_analyze(switch)
+        if switch["num"] >= 42:
+            lnum = switch["num"] - 14
+            ret = post_kintai_state("36",lnum,lstate)
+        else:
+            ret = post_kintai_state("35",switch["num"],lstate)
+        
+        file_json_1 = "./teams_data/WorkData_temp_35.json"
+        file_json_2 = "./teams_data/WorkData_temp_36.json"
+        combined_json = "./teams_data/WorkData_temp_50.json"
+        return combine_sect_json(file_json_1, file_json_2, combined_json)
+        #return ret
+
+def combine_sect_json(output_file_1, output_file_2, output_file):
+    combined_data = ""
+    lout_file = output_file
+    # JSONファイルを読み込み
+    with open(output_file, 'w', encoding='utf-8') as output_file:
+        output_file.write('[')    #JSON開始
+        with open(output_file_1, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            for list, has_more in lookahead(data):
+                json.dump(list, output_file, indent=2, ensure_ascii=False)
+                output_file.write(',')
+        with open(output_file_2, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            del data[:28]
+            del data[7:]
+            for list, has_more in lookahead(data):
+                json.dump(list, output_file, indent=2, ensure_ascii=False)
+                if(has_more):
+                    output_file.write(',')
+        output_file.write(']')
+
+    fp_in = open (lout_file,encoding='utf-8')
+    json_str = fp_in.read()
+    fp_in.close()
+    dict_src_json = json.loads(json_str)
+    
+    return  make_response(jsonify(dict_src_json))
+
 def json_analyze(json):
     if "state" in json:
         return json["state"]
     else:
         return ""
+
 @app.route("/history", methods=['GET', "POST"])
 def get_workhis():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/history/new_work_his_35.json"
+        file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_35.json"
         return get_workhis(file_json,"35","")
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
-        print(switch["name"],switch["sect"])
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/history/new_work_his_35.json"
+        
+        lsect = int(switch["sect"])
+        print(switch["name"],switch["sect"],lsect)
+        if lsect<=19:
+            file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_musen.json"
+        elif lsect<=29:
+            file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_system.json"
+        else:
+            file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_AI.json"
+
         return get_workhis(file_json,switch["sect"],switch["name"])
     
 @app.route("/34", methods=['GET', "POST"])
 def get_work_34():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_34.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_34.json"
         return get_work(file_json,"34")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -240,7 +313,7 @@ def get_work_34():
 @app.route("/33", methods=['GET', "POST"])
 def get_work_33():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_33.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_33.json"
         return get_work(file_json,"33")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -253,7 +326,7 @@ def get_work_33():
 @app.route("/32", methods=['GET', "POST"])
 def get_work_32():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_32.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_32.json"
         return get_work(file_json,"32")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -266,7 +339,7 @@ def get_work_32():
 @app.route("/31", methods=['GET', "POST"])
 def get_work_31():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_31.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_31.json"
         return get_work(file_json,"31")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -279,7 +352,7 @@ def get_work_31():
 @app.route("/30", methods=['GET', "POST"])
 def get_work_30():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_30.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_30.json"
         return get_work(file_json,"30")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -292,7 +365,7 @@ def get_work_30():
 @app.route("/10", methods=['GET', "POST"])
 def get_work_10():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_10.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_10.json"
         return get_work(file_json,"10")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -305,7 +378,7 @@ def get_work_10():
 @app.route("/11", methods=['GET', "POST"])
 def get_work_11():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_11.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_11.json"
         return get_work(file_json,"11")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -318,7 +391,7 @@ def get_work_11():
 @app.route("/14", methods=['GET', "POST"])
 def get_work_14():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_14.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_14.json"
         return get_work(file_json,"14")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -331,7 +404,7 @@ def get_work_14():
 @app.route("/15", methods=['GET', "POST"])
 def get_work_15():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_15.json"
+        file_json = R""+ global_cloud_dir + "share_data/work_15.json"
         return get_work(file_json,"15")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -344,7 +417,7 @@ def get_work_15():
 @app.route("/20", methods=['GET', "POST"])
 def get_work_20():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_20.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_20.json"
         return get_work(file_json,"20")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -357,7 +430,7 @@ def get_work_20():
 @app.route("/21", methods=['GET', "POST"])
 def get_work_21():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_21.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_21.json"
         return get_work(file_json,"21")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -370,7 +443,7 @@ def get_work_21():
 @app.route("/22", methods=['GET', "POST"])
 def get_work_22():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_22.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_22.json"
         return get_work(file_json,"22")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -383,7 +456,7 @@ def get_work_22():
 @app.route("/23", methods=['GET', "POST"])
 def get_work_23():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_23.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_23.json"
         return get_work(file_json,"23")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -396,7 +469,7 @@ def get_work_23():
 @app.route("/24", methods=['GET', "POST"])
 def get_work_24():
     if request.method == "GET":
-        file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_24.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_24.json"
         return get_work(file_json,"24")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -408,7 +481,7 @@ def get_work_24():
         return ret
 @app.route("/content", methods=['GET', "POST"])
 def get_work_content():
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/content.json"
+    file_json = R""+global_cloud_dir+"share_data/content.json"
     if request.method == "GET":
         return get_work_content(file_json)
     else:
@@ -419,40 +492,41 @@ def get_work_content():
         ltenki = switch["tenki"]
         return set_work_content(file_json,lmsg,ltenki)
 
+#仙台拠点3F
 @app.route("/seat", methods=['GET'])
 def get_work_seat():
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/s_zaseki.json"
+    file_json = R""+ global_cloud_dir + "share_data/s_zaseki.json"
     return get_seat_info(file_json,'./SeatData_temp.json',"./teams_data/SendaiSeatData.json",0)
-
-@app.route("/seat_j", methods=['GET'])
-def get_work_seat_j():
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/j_zaseki.json"
-    return get_seat_info(file_json,'./SeatData_j_temp.json',"./teams_data/SendaiSeatData_j.json",5)
-
+#仙台拠点2F
 @app.route("/seat_s_2f", methods=['GET'])
 def get_work_seat_s2f():
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/s_2f_zaseki.json"
+    file_json = R""+ global_cloud_dir + "share_data/s_2f_zaseki.json"
     return get_seat_info(file_json,'./SeatData_s2f_temp.json',"./teams_data/SendaiSeatData_s2f.json",1)
-
+#仙台定禅寺オフィス
+@app.route("/seat_j", methods=['GET'])
+def get_work_seat_j():
+    file_json = R""+ global_cloud_dir + "share_data/j_zaseki.json"
+    return get_seat_info(file_json,'./SeatData_j_temp.json',"./teams_data/SendaiSeatData_j.json",4)
+#金沢駅側7F
 @app.route("/seat_k_7fs2", methods=['GET'])
 def get_work_seat_k7fs2():
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/k_zaseki_7fs_2.json"
+    file_json = R""+ global_cloud_dir + "share_data/k_zaseki_7fs_2.json"
     return get_seat_info(file_json,'./SeatData_k7fs_temp.json',"./teams_data/KanazawaSeatData_k7fs2.json",2)
-
+#金沢県庁側7F
 @app.route("/seat_k_7fp2", methods=['GET'])
 def get_work_seat_k7fp2():
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/k_zaseki_7fp_2.json"
+    file_json = R""+ global_cloud_dir + "share_data/k_zaseki_7fp_2.json"
     return get_seat_info(file_json,'./SeatData_k7fs_temp.json',"./teams_data/KanazawaSeatData_k7fp2.json",3)
 
 @app.route("/seat_h", methods=['GET'])
 def get_work_seat_h():
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/h_zaseki.json"
-    return get_seat_info(file_json,'./SeatData_h_temp.json',"./teams_data/KanazawaSeatData_h.json",4)
-
+    file_json = R""+ global_cloud_dir + "share_data/h_zaseki.json"
+    return get_seat_info(file_json,'./SeatData_h_temp.json',"./teams_data/KanazawaSeatData_h.json",8)
+#浜松4F
 @app.route("/seat_h_free4f", methods=['GET', "POST"])
 def get_work_seat_h_free4f():
     if request.method == "GET":
-        return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/hamamatsuSeatData_h_free4f.json",4)
+        return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/hamamatsuSeatData_h_free4f.json",5)
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -462,12 +536,11 @@ def get_work_seat_h_free4f():
         lsect = switch["sect"]
         lno = int(switch["no"])
         return make_freeseat_data('./SeatFreeData4f_temp.json',lsect,"POST",lname,lno)
-        #return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
-
+#浜松5F
 @app.route("/seat_h_free5f", methods=['GET', "POST"])
 def get_work_seat_h_free5f():
     if request.method == "GET":
-        return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
+        return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/hamamatsuSeatData_h_free5f.json",6)
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -477,13 +550,12 @@ def get_work_seat_h_free5f():
         lsect = switch["sect"]
         lno = int(switch["no"])
         return make_freeseat_data('./SeatFreeData5f_temp.json',lsect,"POST",lname,lno)
-        #return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
-
+#浜松6F
 @app.route("/seat_h_free6f", methods=['GET', "POST"])
 def get_work_seat_h_free6f():
     if request.method == "GET":
         #make_freeseat_data("","","RESET","","")
-        return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/hamamatsuSeatData_h_free.json",4)
+        return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/hamamatsuSeatData_h_free6f.json",7)
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -493,7 +565,26 @@ def get_work_seat_h_free6f():
         lsect = switch["sect"]
         lno = int(switch["no"])
         return make_freeseat_data('./SeatFreeData6f_temp.json',lsect,"POST",lname,lno)
-        #return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/hamamatsuSeatData_h_free6f.json",4)
+
+@app.route("/qwerty/debug", methods=['GET', "POST"])
+def kintai_debug():
+    if request.method == "GET":
+        print("デバッグモードへのアクセス GET")
+        #以下の状態を返却
+        #OneDrive格納ファイル（JSON正当性、タイムスタンプ）
+        #中間ファイル（JSON正当性、タイムスタンプ）
+    else:
+        print("デバッグモードへのアクセス POST")
+        #OneDrivbeの更新
+        #WorkData_temp_xxファイルの削除
+        #浜松座席のリセット
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        lsect = switch["debug"]
+        lpass = switch["pass"]
+        ltxt = switch["txt"]
+        return debug_ctl(lpass,lsect,ltxt)
+
 
 @app.route("/w_info", methods=['GET'])
 def get_work_w_info():
@@ -501,9 +592,12 @@ def get_work_w_info():
     get_work_seat_s2f()
     get_work_seat_k7fs2()
     get_work_seat_k7fp2()
-    get_work_seat_h()
+    #get_work_seat_h()
+    get_work_seat_h_free4f()
+    get_work_seat_h_free5f()
+    get_work_seat_h_free6f()
     get_work_seat_j()
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/psnrd_data.json"
+    file_json = R""+ global_cloud_dir + "share_data/psnrd_data.json"
     fp_seat = open (file_json, encoding='utf-8')
     json_kintai_str = fp_seat.read()
     dict_ret = json.loads(json_kintai_str)
@@ -515,14 +609,6 @@ def get_work_w_info():
     dict_ret[0]["rest"] = chart_list[0][4] + chart_list[1][4]
     dict_ret[0]["work_1"] = chart_list[1][0]
     dict_ret[0]["work_2"] = chart_list[0][0]
-    #定禅寺拠点
-    dict_ret[1]["work"] = chart_list[5][0]
-    dict_ret[1]["office"] = chart_list[5][1]
-    dict_ret[1]["home"] = chart_list[5][2]
-    dict_ret[1]["trip"] = chart_list[5][3]
-    dict_ret[1]["rest"] = chart_list[5][4]
-    dict_ret[1]["work_1"] = chart_list[5][0]
-    dict_ret[1]["work_2"] = chart_list[5][0]
     #金沢拠点
     dict_ret[2]["work"] = chart_list[2][0] + chart_list[3][0]
     dict_ret[2]["office"] = chart_list[2][1] + chart_list[3][1]
@@ -530,13 +616,25 @@ def get_work_w_info():
     dict_ret[2]["trip"] = chart_list[2][3] + chart_list[3][3]
     dict_ret[2]["rest"] = chart_list[2][4] + chart_list[3][4]
     dict_ret[2]["work_1"] = chart_list[2][0] + chart_list[3][0]
+    #定禅寺拠点
+    dict_ret[1]["work"] = chart_list[4][0]
+    dict_ret[1]["office"] = chart_list[4][1]
+    dict_ret[1]["home"] = chart_list[4][2]
+    dict_ret[1]["trip"] = chart_list[4][3]
+    dict_ret[1]["rest"] = chart_list[4][4]
+    dict_ret[1]["work_1"] = chart_list[4][0]
+    dict_ret[1]["work_2"] = chart_list[4][0]
     #浜松拠点
-    dict_ret[3]["work"] = chart_list[4][0]
-    dict_ret[3]["office"] = chart_list[4][1]
-    dict_ret[3]["home"] = chart_list[4][2]
-    dict_ret[3]["trip"] = chart_list[4][3]
-    dict_ret[3]["rest"] = chart_list[4][4]
-    dict_ret[3]["work_1"] = chart_list[4][0]
+    dict_ret[3]["work"] = chart_list[5][0] + chart_list[6][0] + chart_list[7][0]
+    dict_ret[3]["office"] = chart_list[5][1] + chart_list[6][1] + chart_list[7][1]
+    dict_ret[3]["home"] = chart_list[5][2] + chart_list[6][2] + chart_list[7][2]
+    dict_ret[3]["trip"] = chart_list[5][3] + chart_list[6][3] + chart_list[7][3]
+    dict_ret[3]["rest"] = chart_list[5][4] + chart_list[6][4] + chart_list[7][4]
+    dict_ret[3]["work_1"] = chart_list[5][0]
+    dict_ret[3]["work_2"] = chart_list[6][0]
+    dict_ret[3]["work_3"] = chart_list[7][0]
+
+    print(chart_list)
 
     return make_response(jsonify(dict_ret))
 
@@ -663,7 +761,7 @@ def set_work_content(path,lmsg,ltenki):
     fp_in.write(',')    #JSON開始
     w_data = '"tenki":"' + ltenki +'"'
     fp_in.write(w_data)    #JSON開始
-    print(dict_src)
+    #print(dict_src)
     fp_in.write('}]')    #JSON開始
     fp_in.close()
 
@@ -685,43 +783,43 @@ def get_seat_info(path,tmp_path,out_f,place_num):
     file_name = tmp_path
 
     #元になる中間ファイル再作成
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_30.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_30.json"
     get_work(file_json,"30")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_31.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_31.json"
     get_work(file_json,"31")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_32.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_32.json"
     get_work(file_json,"32")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_33.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_33.json"
     get_work(file_json,"33")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_34.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_34.json"
     get_work(file_json,"34")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_35.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_35.json"
     get_work(file_json,"35")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_36.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_36.json"
     get_work(file_json,"36")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_37.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_37.json"
     get_work(file_json,"37")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_39.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_39.json"
     get_work(file_json,"39")
 
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_10.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_10.json"
     get_work(file_json,"10")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_11.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_11.json"
     get_work(file_json,"11")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_14.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_14.json"
     get_work(file_json,"14")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/work_15.json"
+    file_json = R""+ global_cloud_dir + "share_data/work_15.json"
     get_work(file_json,"15")
     
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_20.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_20.json"
     get_work(file_json,"20")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_21.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_21.json"
     get_work(file_json,"21")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_22.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_22.json"
     get_work(file_json,"22")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_23.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_23.json"
     get_work(file_json,"23")
-    file_json = R"C:/Users/7003861/OneDrive - Panasonic/share_data/new_work_24.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_24.json"
     get_work(file_json,"24")
 
     #仙台座席用JSONアップデート
@@ -891,7 +989,7 @@ def get_value_from_json( parent_data, key_list):
 
 def make_freeseat_data(path,sect,kind,name,no):
     if kind == "POST":
-        print("POST",path,10)
+        #print("POST",path,10)
         fp_zaseki = open (path,encoding='utf-8')
         json_str = fp_zaseki.read()
         dict_src_json = json.loads(json_str)
@@ -911,7 +1009,7 @@ def make_freeseat_data(path,sect,kind,name,no):
         # sahreフォルダの座席情報から当日の座席情報を作成
         # 浜松4Fベースデータ作成
         print("RESET",path)
-        path = R"C:/Users/7003861/OneDrive - Panasonic/share_data/seatinfo/hamamatsu_zaseki4f.json"
+        path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki4f.json"
         file_json = './SeatFreeData4f_temp.json'
         try:
             shutil.copy(path,file_json)
@@ -919,7 +1017,7 @@ def make_freeseat_data(path,sect,kind,name,no):
             print("指定されたファイルが見つかりません")
 
         # 浜松5Fベースデータ作成
-        path = R"C:/Users/7003861/OneDrive - Panasonic/share_data/seatinfo/hamamatsu_zaseki5f.json"
+        path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki5f.json"
         file_json = './SeatFreeData5f_temp.json'
         try:
             shutil.copy(path,file_json)
@@ -927,13 +1025,12 @@ def make_freeseat_data(path,sect,kind,name,no):
             print("指定されたファイルが見つかりません")
 
         # 浜松6Fベースデータ作成
-        path = R"C:/Users/7003861/OneDrive - Panasonic/share_data/seatinfo/hamamatsu_zaseki6f.json"
+        path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki6f.json"
         file_json = './SeatFreeData6f_temp.json'
         try:
             shutil.copy(path,file_json)
         except FileNotFoundError:
             print("指定されたファイルが見つかりません")
-        print("GET")
     else:
         print("処理なし")
 
@@ -975,7 +1072,6 @@ def get_workhis(path,no,name):
     history_list[4] = history_list[4].strftime('%Y%m%d') + day_name[dow]
 
     g_name = name.replace(' ','')
-    print(g_name)
 
     ## 申請履歴のJSONファイル読み込み
     file_json = path
@@ -993,10 +1089,14 @@ def get_workhis(path,no,name):
         if g_name in l_name:
             ## 一致した場合、日付判定
             for i in range(len(history_list)):     #列数繰り返し
-                print(list["get_date"])
+                #print(list["get_date"])
                 # 勤務状態設定
                 if str(list["get_date"]) in history_list[i]:
-                    history_list[i] = history_list[i] + ":" +list["state"]["Value"]
+                    l_timeoff = ""
+                    if list["time_off"]["Value"] != "-" and list["time_off"]["Value"] != "無":
+                        l_timeoff = "/" + list["time_off"]["Value"]
+                    history_list[i] = history_list[i] + ":" +list["state"]["Value"] + l_timeoff
+
                     # フレックス情報設定
                     if str(list["flex"]["Value"]) == "有":
                         l_flex = str(list["flex_s_time"]) + "~" + str(list["flex_e_time"])
@@ -1007,7 +1107,7 @@ def get_workhis(path,no,name):
                     # 時間休情報設定
                     if str(list["time_off"]["Value"]) == "有":
                         history_list[i] = history_list[i] + "(時間休 " + str(list["time_off_s_time"]) + str(list["time_off_e_time"])  + ")"
-            print(history_list)
+            #print(history_list)
 
     for i in range(len(history_list)):     #列数繰り返し
         if "土" in history_list[i] or "日" in history_list[i]:
@@ -1031,7 +1131,7 @@ def get_workhis(path,no,name):
         "name":name
     }
     
-    print(person_history)
+    #print(person_history)
 
     ## JSONファイルを返却
 
@@ -1044,9 +1144,9 @@ file_update_time = ["no","no","no","no","no","no","no","no","no","no",
 
 file_state_reset = ["-","-","-","-","-","-","-","-","-","-",
                     "no","no","-","-","no","no","-","-","-","-",
-                    "no","no","-","-","-","-","-","-","-","-",
+                    "no","no","no","no","no","-","-","-","-","-",
                     "no","no","no","no","no","no","no","no","-","no"]
-sect_dat = [10,11,14,15,20,21,30,31,32,33,34,35,36,37,39]
+sect_dat = [10,11,14,15,20,21,22,23,24,30,31,32,33,34,35,36,37,39]
 ### TeamsのJSONファイルを取得し、表示用のJSONファイルに変換して返却
 ###
 def get_work(path,no):
@@ -1058,7 +1158,7 @@ def get_work(path,no):
     n_time = now.strftime('%Y/%m/%d')
     #print(now)
     
-    file_temp = R"C:/Users/7003861/OneDrive - Panasonic/worktime/last_time.txt"
+    file_temp = R""+ global_cloud_dir + "worktime/last_time.txt"
     
     up_t = os.path.getmtime(file_temp)
     up_t_int = datetime.fromtimestamp(up_t)
@@ -1070,7 +1170,7 @@ def get_work(path,no):
     #print(n_time,len(n_time),up_t_str,len(n_time))
     if(no == "35" or no == "11"):
         #print("One Drive Update")
-        dummy_temp = R"C:/Users/7003861/OneDrive - Panasonic/worktime/dumy.txt"
+        dummy_temp = R""+ global_cloud_dir + "worktime/dumy.txt"
         f_dummy = open(dummy_temp,'w')
         f_dummy.write(str(now))
         f_dummy.close()
@@ -1289,7 +1389,7 @@ def get_work(path,no):
         if day_reset == "yes":
             #ファイルをバックアップ
             #カウントファイルを読み込む
-            file_temp = R"C:\Work_PSNRD\source_code-main\backend\new_backend\backup\last_backup_cnt.txt"
+            file_temp = "./backup/last_backup_cnt.txt"
 
             f = open(file_temp,'r')
             tmp_cnt = f.read()
@@ -1337,7 +1437,34 @@ def getRequest():
         return request.form['message']
     else:
         return "GET Method"
+
+##デバッグ操作
+def debug_ctl(lpass,lsect,ltxt):
+    print("デバッグ操作",lpass,lsect,ltxt)
+    if global_pass != lpass:
+        return "認証エラー"
     
+    if lsect == "001": #浜松座席リセット
+        print("### 浜松の座席表をリセットし、新規座席表からデータを更新")
+        make_freeseat_data("","","RESET","","")
+    elif lsect == "002": #WorkData_temp_xxファイルの削除
+        print("### 指定された課のWorkData_temp_xxを削除")
+    elif lsect == "003": #OneDriveの更新
+        print("### 指定されたファイルをOneDrive上に新規作成")
+    else:
+        print("### 該当なし指示")
+        return "処理なし"
+    
+def debug_ctl_get(lpass,lsect,ltxt):
+    print("デバッグ情報取得",lpass,lsect,ltxt)
+    #勤怠管理中間ファイル確認（WorkData_temp_xx.json）
+
+    #座席表用勤怠情報一覧ファイル確認(xxxxSeatData)
+
+    #浜松座席データファイル一覧
+    ## 座席管理用ファイル（フリーアドレス管理用のファイル）
+    ## 座席ファイル（OneDriveからのコピー）
+
 if __name__ == '__main__':
     app.debug = True
     #app.run()

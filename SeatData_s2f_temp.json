@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2025/01/23 11:00:00",
+  "state": "2025/02/03 16:30:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -145,7 +145,7 @@
   "sect": 21
 },{
   "name": "小野寺徹",
-  "state": "出社(フ",
+  "state": "部分在宅",
   "substate": "-",
   "sect": 21
 },{
@@ -155,7 +155,7 @@
   "sect": 21
 },{
   "name": "大場雄彦",
-  "state": "出社/在",
+  "state": "年休",
   "substate": "-",
   "sect": "-"
 },{
@@ -185,7 +185,7 @@
   "sect": "-"
 },{
   "name": "佐藤慎一",
-  "state": "在宅勤務",
+  "state": "出社(フ",
   "substate": "-",
   "sect": 21
 },{
@@ -280,8 +280,8 @@
   "sect": 21
 },{
   "name": "佐藤公一",
-  "state": "出社/在",
-  "substate": "時間休",
+  "state": "出社",
+  "substate": "-",
   "sect": 21
 },{
   "name": "安部勇吾",
@@ -300,12 +300,12 @@
   "sect": 21
 },{
   "name": "浅野仁",
-  "state": "在宅勤務",
+  "state": "部分在宅",
   "substate": "-",
   "sect": 21
 },{
   "name": "佐藤雄一",
-  "state": "年休",
+  "state": "出社",
   "substate": "-",
   "sect": 21
 },{
@@ -425,7 +425,7 @@
   "sect": "-"
 },{
   "name": "馬渕雄志",
-  "state": "在宅勤務",
+  "state": "出社",
   "substate": "-",
   "sect": 21
 },{
@@ -435,7 +435,7 @@
   "sect": 21
 },{
   "name": "渥美紘一",
-  "state": "出社",
+  "state": "出張(M",
   "substate": "-",
   "sect": 21
 },{
@@ -735,7 +735,7 @@
   "sect": 14
 },{
   "name": "鴇和哉",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
@@ -825,7 +825,7 @@
   "sect": 14
 },{
   "name": "佐藤勝行",
-  "state": "年休",
+  "state": "出社",
   "substate": "-",
   "sect": 14
 },{
@@ -865,7 +865,7 @@
   "sect": 14
 },{
   "name": "伊藤文男",
-  "state": "出社",
+  "state": "出張(富",
   "substate": "-",
   "sect": 14
 },{
@@ -880,7 +880,7 @@
   "sect": 14
 },{
   "name": "小野悠",
-  "state": "在宅勤務",
+  "state": "出社",
   "substate": "-",
   "sect": 14
 },{
@@ -890,7 +890,7 @@
   "sect": 14
 },{
   "name": "松田孝基",
-  "state": "出社",
+  "state": "出張(三",
   "substate": "-",
   "sect": 14
 },{
@@ -965,12 +965,12 @@
   "sect": 14
 },{
   "name": "表航平",
-  "state": "在宅勤務",
+  "state": "出社",
   "substate": "-",
   "sect": 14
 },{
   "name": "小向康文",
-  "state": "在宅勤務",
+  "state": "出社",
   "substate": "-",
   "sect": 14
 },{
@@ -1005,7 +1005,7 @@
   "sect": 14
 },{
   "name": "福嶋大希",
-  "state": "年休",
+  "state": "出社",
   "substate": "-",
   "sect": 14
 },{
@@ -1016,7 +1016,7 @@
 },{
   "name": "深澤信昭",
   "state": "出社",
-  "substate": "-",
+  "substate": "午前休",
   "sect": 14
 },{
   "name": "共栄",

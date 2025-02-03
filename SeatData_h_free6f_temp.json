@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2025/01/28 14:30:00",
+  "state": "2025/02/03 17:00:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -184,15 +184,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "内海智英",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "大下誠",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
   "name": "机",
   "state": "-",
@@ -229,30 +229,30 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "大下誠",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "鈴木孝征",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "大下誠",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "大下誠",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "大下誠",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
   "name": "机",
   "state": "-",

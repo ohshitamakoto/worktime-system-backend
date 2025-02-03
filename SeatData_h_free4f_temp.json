@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2025/01/28 14:30:00",
+  "state": "2025/02/03 17:30:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -194,10 +194,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
+  "name": "内線601",
+  "state": "-",
+  "substate": "",
+  "sect": 1
 },{
   "name": "通路",
   "state": "",
@@ -274,20 +274,20 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "大下誠",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "山口勝広",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
-  "name": "沼澤友喜",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -314,25 +314,25 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "伊藤博重",
+  "name": "河野充",
   "state": "出社",
   "substate": "-",
   "sect": "35"
 },{
-  "name": "佐藤仁司",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "大下誠",
-  "state": "出社",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
-  "name": "平野太陽*12課",
-  "state": "",
+  "name": "机",
+  "state": "-",
   "substate": "-",
-  "sect": "35"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -401,7 +401,7 @@
 },{
   "name": "入口",
   "state": "",
-  "substate": "",
+  "substate": "-",
   "sect": 0
 },{
   "name": "通路",

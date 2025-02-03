@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2025/01/28 14:30:00",
+  "state": "2025/02/03 16:30:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -65,7 +65,7 @@
   "sect": 35
 },{
   "name": "森島公一",
-  "state": "出社(フ",
+  "state": "出社",
   "substate": "-",
   "sect": 35
 },{
@@ -150,18 +150,18 @@
   "sect": "-"
 },{
   "name": "笹原俊之",
-  "state": "在宅勤務",
+  "state": "出社",
   "substate": "-",
   "sect": 35
 },{
   "name": "佐々木透",
-  "state": "出社",
+  "state": "出社(フ",
   "substate": "-",
   "sect": 35
 },{
   "name": "柴田崇斗",
-  "state": "出社",
-  "substate": "午前休",
+  "state": "出社/在",
+  "substate": "-",
   "sect": 35
 },{
   "name": "実験",
@@ -195,12 +195,12 @@
   "sect": "-"
 },{
   "name": "柳川純一",
-  "state": "出社(フ",
-  "substate": "-",
+  "state": "出社",
+  "substate": "午前休",
   "sect": 35
 },{
   "name": "伊藤博重",
-  "state": "出社",
+  "state": "出社(フ",
   "substate": "-",
   "sect": 35
 },{
@@ -215,7 +215,7 @@
   "sect": 35
 },{
   "name": "高橋直樹",
-  "state": "年休",
+  "state": "在宅勤務",
   "substate": "-",
   "sect": 35
 },{
@@ -291,7 +291,7 @@
 },{
   "name": "鈴木規郎",
   "state": "出社",
-  "substate": "-",
+  "substate": "午前休",
   "sect": 35
 },{
   "name": "内海智英",
@@ -330,7 +330,7 @@
   "sect": "-"
 },{
   "name": "柿崎博之",
-  "state": "出社(フ",
+  "state": "年休(フ",
   "substate": "-",
   "sect": 35
 },{
@@ -430,7 +430,7 @@
   "sect": 35
 },{
   "name": "河野充",
-  "state": "出社(在",
+  "state": "出社",
   "substate": "-",
   "sect": 35
 },{
@@ -470,7 +470,7 @@
   "sect": 36
 },{
   "name": "鈴木哲治",
-  "state": "出社(フ",
+  "state": "出社",
   "substate": "-",
   "sect": 35
 },{
@@ -480,7 +480,7 @@
   "sect": 36
 },{
   "name": "沼澤友喜",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 35
 },{
@@ -560,7 +560,7 @@
   "sect": 35
 },{
   "name": "山崎明彦",
-  "state": "出社(フ",
+  "state": "出社",
   "substate": "-",
   "sect": 35
 },{
@@ -700,7 +700,7 @@
   "sect": 36
 },{
   "name": "板橋秀樹",
-  "state": "出社",
+  "state": "在宅勤務",
   "substate": "-",
   "sect": 36
 },{
