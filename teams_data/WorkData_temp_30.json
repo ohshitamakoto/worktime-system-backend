@@ -5,7 +5,7 @@
             "Claims": "i:0#.f|membership|tobise.daisuke@jp.panasonic.com",
             "DisplayName": "飛世 大介",
             "Email": "tobise.daisuke@jp.panasonic.com",
-            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=tobise.daisuke@jp.panasonic.com",
+            "Picture": "https://jppanasonic.sharepoint.com/sites/PSNRD-SOFT-LAB/_layouts/15/UserPhoto.aspx?Size=L&AccountName=tobise.daisuke@jp.panasonic.com",
             "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部",
             "JobTitle": null
         },
@@ -37,7 +37,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/07 16:30:02"
+        "get_time": "2025/02/08 22:30:00"
     },
     {
         "name": {
@@ -45,7 +45,7 @@
             "Claims": "i:0#.f|membership|fukuda.hiroyuki-k@jp.panasonic.com",
             "DisplayName": "福田 博之",
             "Email": "fukuda.hiroyuki-k@jp.panasonic.com",
-            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=fukuda.hiroyuki-k@jp.panasonic.com",
+            "Picture": "https://jppanasonic.sharepoint.com/sites/PSNRD-SOFT-LAB/_layouts/15/UserPhoto.aspx?Size=L&AccountName=fukuda.hiroyuki-k@jp.panasonic.com",
             "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部",
             "JobTitle": null
         },
@@ -77,7 +77,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/07 16:30:02"
+        "get_time": "2025/02/08 22:30:00"
     },
     {
         "name": {
@@ -85,7 +85,7 @@
             "Claims": "i:0#.f|membership|kagaya.fumiaki@jp.panasonic.com",
             "DisplayName": "加賀谷 文明",
             "Email": "kagaya.fumiaki@jp.panasonic.com",
-            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=kagaya.fumiaki@jp.panasonic.com",
+            "Picture": "https://jppanasonic.sharepoint.com/sites/PSNRD-SOFT-LAB/_layouts/15/UserPhoto.aspx?Size=L&AccountName=kagaya.fumiaki@jp.panasonic.com",
             "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部",
             "JobTitle": null
         },
@@ -117,7 +117,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/07 16:30:02"
+        "get_time": "2025/02/08 22:30:00"
     },
     {
         "name": "None",

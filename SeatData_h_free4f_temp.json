@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2025/02/07 16:30:02",
+  "state": "2025/02/08 22:30:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -274,10 +274,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "Free",
-  "state": "-",
+  "name": "沼澤友喜",
+  "state": "出社",
   "substate": "-",
-  "sect": "-"
+  "sect": "35"
 },{
   "name": "Free",
   "state": "-",
@@ -314,10 +314,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "Free",
-  "state": "-",
+  "name": "大下誠",
+  "state": "出社",
   "substate": "-",
-  "sect": "-"
+  "sect": "35"
 },{
   "name": "Free",
   "state": "-",
