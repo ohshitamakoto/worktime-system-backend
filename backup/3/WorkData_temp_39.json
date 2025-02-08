@@ -37,7 +37,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/01/31 22:30:01"
+        "get_time": "2025/02/05 22:59:59"
     },
     {
         "name": {
@@ -51,8 +51,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "出社"
+            "Id": 3,
+            "Value": "在宅終了"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -66,18 +66,18 @@
         },
         "time_off": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "-"
+            "Id": 3,
+            "Value": "午後休"
         },
-        "work_s_time": "9:00",
-        "work_e_time": "",
-        "home_s_time": null,
-        "home_e_time": null,
+        "work_s_time": "09:00",
+        "work_e_time": "12:30",
+        "home_s_time": "09:00",
+        "home_e_time": "12:30",
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/01/31 22:30:01"
+        "get_time": "2025/02/05 22:59:59"
     },
     {
         "name": "None",
@@ -190,14 +190,14 @@
             "Value": "-"
         },
         "work_s_time": "09:00",
-        "work_e_time": "17:30",
+        "work_e_time": "19:00",
         "home_s_time": "09:00",
-        "home_e_time": "17:30",
+        "home_e_time": "19:00",
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/01/31 22:30:01"
+        "get_time": "2025/02/05 22:59:59"
     },
     {
         "name": {
@@ -211,8 +211,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": -1,
-            "Value": "出張(夢洲)"
+            "Id": 3,
+            "Value": "在宅終了"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -229,15 +229,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "9:00",
-        "work_e_time": "",
-        "home_s_time": null,
-        "home_e_time": null,
+        "work_s_time": "09:00",
+        "work_e_time": "20:00",
+        "home_s_time": "09:00",
+        "home_e_time": "20:00",
         "flex_s_time": null,
-        "flex_e_time": "　",
+        "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/01/31 22:30:01"
+        "get_time": "2025/02/05 22:59:59"
     },
     {
         "name": {
@@ -270,14 +270,14 @@
             "Value": "-"
         },
         "work_s_time": "09:00",
-        "work_e_time": "17:30",
+        "work_e_time": "19:00",
         "home_s_time": "09:00",
-        "home_e_time": "17:30",
+        "home_e_time": "19:00",
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/01/31 22:30:01"
+        "get_time": "2025/02/05 22:59:59"
     },
     {
         "name": {
@@ -291,8 +291,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "出社"
+            "Id": 7,
+            "Value": "部分在宅終了"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -311,13 +311,13 @@
         },
         "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": null,
-        "home_e_time": null,
+        "home_s_time": "13：15",
+        "home_e_time": "19:50",
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/01/31 22:30:01"
+        "get_time": "2025/02/05 22:59:59"
     },
     {
         "name": "None",

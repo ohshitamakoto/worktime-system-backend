@@ -40,6 +40,10 @@ def lookahead(iterable):
 def makeDisplayJson(j_str):
 
         #print(s_str,e_str,name)
+    if j_str["state"] == None:
+        python_obj = {"Value": "出社"}
+        j_str["state"] = python_obj
+        print("勤務状態エラー",j_str,j_str["name"]["DisplayName"])
 
     #勤務状態を編集　出社/在宅/出社&在宅/年休　＋　（フレックス）
     state = j_str["state"]["Value"]
@@ -155,7 +159,9 @@ def makeDisplayJson(j_str):
         if "高橋 寛" in sp_name:
             j_str["state"]["Value"] = "退勤"
             j_str["work_s_time"] = ""
-            
+        if "村松 寿" in sp_name:
+            j_str["state"]["Value"] = "（出向中）"
+            j_str["work_s_time"] = ""
     return j_str
 
 @app.route("/39", methods=['GET', "POST"])
@@ -280,12 +286,16 @@ def json_analyze(json):
 @app.route("/history", methods=['GET', "POST"])
 def get_workhis():
     if request.method == "GET":
-        file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_35.json"
-        return get_workhis(file_json,"35","")
+        return "GET"
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
         
+        if switch["name"] == None:
+            return "NG"
+        if switch["sect"] == None:
+            return "NG"
+            
         lsect = int(switch["sect"])
         print(switch["name"],switch["sect"],lsect)
         if lsect<=19:
@@ -295,7 +305,7 @@ def get_workhis():
         else:
             file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_AI.json"
 
-        return get_workhis(file_json,switch["sect"],switch["name"])
+        return get_workhis(file_json,switch["sect"],switch["name"],"")
     
 @app.route("/34", methods=['GET', "POST"])
 def get_work_34():
@@ -481,7 +491,7 @@ def get_work_24():
         return ret
 @app.route("/content", methods=['GET', "POST"])
 def get_work_content():
-    file_json = R""+global_cloud_dir+"share_data/content.json"
+    file_json = R""+global_cloud_dir+"share_data/json_tmp/content.json"
     if request.method == "GET":
         return get_work_content(file_json)
     else:
@@ -495,28 +505,28 @@ def get_work_content():
 #仙台拠点3F
 @app.route("/seat", methods=['GET'])
 def get_work_seat():
-    file_json = R""+ global_cloud_dir + "share_data/s_zaseki.json"
-    return get_seat_info(file_json,'./SeatData_temp.json',"./teams_data/SendaiSeatData.json",0)
+    file_json = R""+ global_cloud_dir + "share_data/seatinfo/sendai_zaseki3f.json"
+    return get_seat_info(file_json,'./SeatData_s_3f_temp.json',"./teams_data/jointData_SendaiSeat_3f.json",0)
 #仙台拠点2F
 @app.route("/seat_s_2f", methods=['GET'])
 def get_work_seat_s2f():
-    file_json = R""+ global_cloud_dir + "share_data/s_2f_zaseki.json"
-    return get_seat_info(file_json,'./SeatData_s2f_temp.json',"./teams_data/SendaiSeatData_s2f.json",1)
+    file_json = R""+ global_cloud_dir + "share_data/seatinfo/sendai_zaseki2f.json"
+    return get_seat_info(file_json,'./SeatData_s_2f_temp.json',"./teams_data/jointData_SendaiSeat_2f.json",1)
 #仙台定禅寺オフィス
 @app.route("/seat_j", methods=['GET'])
 def get_work_seat_j():
-    file_json = R""+ global_cloud_dir + "share_data/j_zaseki.json"
-    return get_seat_info(file_json,'./SeatData_j_temp.json',"./teams_data/SendaiSeatData_j.json",4)
+    file_json = R""+ global_cloud_dir + "share_data/seatinfo/jozenji_zaseki6f.json"
+    return get_seat_info(file_json,'./SeatData_j_6f_temp.json',"./teams_data/jointData_JozenjiSeat_6f.json",4)
 #金沢駅側7F
 @app.route("/seat_k_7fs2", methods=['GET'])
 def get_work_seat_k7fs2():
-    file_json = R""+ global_cloud_dir + "share_data/k_zaseki_7fs_2.json"
-    return get_seat_info(file_json,'./SeatData_k7fs_temp.json',"./teams_data/KanazawaSeatData_k7fs2.json",2)
+    file_json = R""+ global_cloud_dir + "share_data/seatinfo/kanazawa_zaseki_7fs.json"
+    return get_seat_info(file_json,'./SeatData_k_7fs_temp.json',"./teams_data/jointData_KanazawaSeat_7fs.json",2)
 #金沢県庁側7F
 @app.route("/seat_k_7fp2", methods=['GET'])
 def get_work_seat_k7fp2():
-    file_json = R""+ global_cloud_dir + "share_data/k_zaseki_7fp_2.json"
-    return get_seat_info(file_json,'./SeatData_k7fs_temp.json',"./teams_data/KanazawaSeatData_k7fp2.json",3)
+    file_json = R""+ global_cloud_dir + "share_data/seatinfo/kanazawa_zaseki_7fp.json"
+    return get_seat_info(file_json,'./SeatData_k_7fp_temp.json',"./teams_data/jointData_KanazawaSeat_7fp.json",3)
 
 @app.route("/seat_h", methods=['GET'])
 def get_work_seat_h():
@@ -526,7 +536,8 @@ def get_work_seat_h():
 @app.route("/seat_h_free4f", methods=['GET', "POST"])
 def get_work_seat_h_free4f():
     if request.method == "GET":
-        return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/hamamatsuSeatData_h_free4f.json",5)
+        #make_freeseat_data("","","RESET4F","","")
+        return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/jointData_Hamamatsu_4f.json",5)
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -540,7 +551,8 @@ def get_work_seat_h_free4f():
 @app.route("/seat_h_free5f", methods=['GET', "POST"])
 def get_work_seat_h_free5f():
     if request.method == "GET":
-        return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/hamamatsuSeatData_h_free5f.json",6)
+        #make_freeseat_data("","","RESET5F","","")
+        return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/jointData_Hamamatsu_5f.json",6)
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -554,8 +566,8 @@ def get_work_seat_h_free5f():
 @app.route("/seat_h_free6f", methods=['GET', "POST"])
 def get_work_seat_h_free6f():
     if request.method == "GET":
-        #make_freeseat_data("","","RESET","","")
-        return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/hamamatsuSeatData_h_free6f.json",7)
+        #make_freeseat_data("","","RESET6F","","")
+        return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/jointData_Hamamatsu_6f.json",7)
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -573,6 +585,8 @@ def kintai_debug():
         #以下の状態を返却
         #OneDrive格納ファイル（JSON正当性、タイムスタンプ）
         #中間ファイル（JSON正当性、タイムスタンプ）
+        return debug_ctl_get("","","")
+        #return "OK"
     else:
         print("デバッグモードへのアクセス POST")
         #OneDrivbeの更新
@@ -585,6 +599,36 @@ def kintai_debug():
         ltxt = switch["txt"]
         return debug_ctl(lpass,lsect,ltxt)
 
+@app.route("/trip_info", methods=['GET'])
+def get_work_trip_info():
+    trip_list = ["","","",""]
+    file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_musen.json"
+    ret1 = get_workhis(file_json,0,"定禅寺","ON")
+    file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_system.json"
+    ret2 = get_workhis(file_json,1,"定禅寺","ON")
+    file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_AI.json"
+    ret3 = get_workhis(file_json,1,"定禅寺","ON")
+    json_list1 = json.loads(ret1)
+    json_list2 = json.loads(ret2)
+    json_list3 = json.loads(ret3)
+
+    trip_list[0] = " #" + json_list1["day2"]+json_list2["day2"]+json_list3["day2"]
+    trip_list[1] = " #" + json_list1["day3"]+json_list2["day3"]+json_list3["day3"]
+    trip_list[2] = " #" + json_list1["day4"]+json_list2["day4"]+json_list3["day4"]
+    trip_list[3] = " #" + json_list1["day5"]+json_list2["day5"]+json_list3["day5"]
+
+    for i in range(len(trip_list)):
+        tmp = trip_list[i]
+        if len(tmp) > 15:
+            tmp = tmp.replace('なし　','')
+            x = tmp.count(".")
+            trip_list[i] = tmp + str(x) + "名　"
+        if "土" in tmp:
+            trip_list[i] = ""
+
+    #print(trip_list)
+
+    return trip_list
 
 @app.route("/w_info", methods=['GET'])
 def get_work_w_info():
@@ -597,7 +641,7 @@ def get_work_w_info():
     get_work_seat_h_free5f()
     get_work_seat_h_free6f()
     get_work_seat_j()
-    file_json = R""+ global_cloud_dir + "share_data/psnrd_data.json"
+    file_json = R""+ global_cloud_dir + "share_data/json_tmp/psnrd_data.json"
     fp_seat = open (file_json, encoding='utf-8')
     json_kintai_str = fp_seat.read()
     dict_ret = json.loads(json_kintai_str)
@@ -634,7 +678,8 @@ def get_work_w_info():
     dict_ret[3]["work_2"] = chart_list[6][0]
     dict_ret[3]["work_3"] = chart_list[7][0]
 
-    print(chart_list)
+    #print(chart_list)
+    #print(dict_ret)
 
     return make_response(jsonify(dict_ret))
 
@@ -767,7 +812,7 @@ def set_work_content(path,lmsg,ltenki):
 
     return make_response(jsonify(dict_src))
 
-def get_seat_info(path,tmp_path,out_f,place_num):
+def get_seat_info(path, tmp_path, out_f, place_num):
     #チャート用集計リスト初期化
     for x in range(5):
         chart_list[place_num][x] = 0
@@ -866,6 +911,7 @@ def get_seat_info(path,tmp_path,out_f,place_num):
             
             if chart_data <= 4:
                 chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
+
             #print(seat_name, sate)
             list["state"] = ""
             if sate != "":
@@ -886,7 +932,28 @@ def get_seat_info(path,tmp_path,out_f,place_num):
     fp_seat = open (file_name, encoding='utf-8')
     json_kintai_str = fp_seat.read()
     dict_ret = json.loads(json_kintai_str)
-    
+
+    #浜松だけフリーアドレスのため再集計　chart_list　1,2,3,4
+    if place_num >= 5 and place_num <= 7:
+        file_json = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_meibo.json"
+        fp_seat = open (file_json,encoding='utf-8')
+        json_hmeibo_str = fp_seat.read()
+        hmeibo_json = json.loads(json_hmeibo_str)
+        fp_seat.close()
+
+        chart_list[place_num][1] = 0
+        chart_list[place_num][2] = 0
+        chart_list[place_num][3] = 0
+        chart_list[place_num][4] = 0
+
+        if place_num == 5:
+            for list, has_more in lookahead(hmeibo_json):
+                seat_name = list["name"]
+                sate,name,sub,chart_data = get_kintai_state(seat_name,dict_kintai_json)
+                if chart_data >= 1 and chart_data <= 4:
+                    chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
+                #print(seat_name,chart_data)
+
     return make_response(jsonify(dict_ret))
 
 def get_kintai_state(name, find_list):
@@ -995,7 +1062,7 @@ def make_freeseat_data(path,sect,kind,name,no):
         dict_src_json = json.loads(json_str)
         fp_zaseki.close()
 
-        if dict_src_json[no]["name"] != "机" and name != "机":
+        if dict_src_json[no]["name"] != "Free" and name != "Free":
             return "座席を指定できませんでした。固定席または既に指定済みの席です。"
         else:
             dict_src_json[no]["name"] = name
@@ -1031,6 +1098,33 @@ def make_freeseat_data(path,sect,kind,name,no):
             shutil.copy(path,file_json)
         except FileNotFoundError:
             print("指定されたファイルが見つかりません")
+    elif kind == "RESET4F": #RESET
+        # sahreフォルダの座席情報から当日の座席情報を作成
+        print("RESET",path)
+        path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki4f.json"
+        file_json = './SeatFreeData4f_temp.json'
+        try:
+            shutil.copy(path,file_json)
+        except FileNotFoundError:
+            print("指定されたファイルが見つかりません")
+    elif kind == "RESET5F": #RESET
+        # sahreフォルダの座席情報から当日の座席情報を作成
+        # 浜松5Fベースデータ作成
+        path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki5f.json"
+        file_json = './SeatFreeData5f_temp.json'
+        try:
+            shutil.copy(path,file_json)
+        except FileNotFoundError:
+            print("指定されたファイルが見つかりません")
+    elif kind == "RESET6F": #RESET
+        # sahreフォルダの座席情報から当日の座席情報を作成
+        # 浜松6Fベースデータ作成
+        path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki6f.json"
+        file_json = './SeatFreeData6f_temp.json'
+        try:
+            shutil.copy(path,file_json)
+        except FileNotFoundError:
+            print("指定されたファイルが見つかりません")
     else:
         print("処理なし")
 
@@ -1038,9 +1132,10 @@ def make_freeseat_data(path,sect,kind,name,no):
 
 ### 申請履歴情報
 
-def get_workhis(path,no,name):
+def get_workhis(path,no,name,trip):
     history_list = ["not supported","not supported","not supported","not supported","not supported"]
     day_name = ["（月）","（火）","（水）","（木）","（金）","（土）","（日）"]
+
     if (os.path.exists(path)) == False:
         person_history = {
         "day1":history_list[0],
@@ -1053,6 +1148,21 @@ def get_workhis(path,no,name):
         ## JSONファイルを返却
         return json.dumps(person_history)
 
+    ## 申請履歴のJSONファイル読み込み
+    file_json = path
+    fp_in = open (file_json,encoding='utf-8')
+    json_str = fp_in.read()
+    fp_in.close()
+    r_ret = "OK"
+    try:
+        json_list = json.loads(json_str)
+    except json.JSONDecodeError as e:
+        r_ret = "NG"
+    except OSError as e:
+        r_ret = "NG"
+    if r_ret == "NG":
+        return json.dumps(person_history)
+    
     ## 今日の日付設定
     now = datetime.now() # 現在時刻の取得
     dow =  now.weekday()
@@ -1073,54 +1183,75 @@ def get_workhis(path,no,name):
 
     g_name = name.replace(' ','')
 
-    ## 申請履歴のJSONファイル読み込み
-    file_json = path
-    fp_in = open (file_json,encoding='utf-8')
-    json_str = fp_in.read()
-    fp_in.close()
-    json_list = json.loads(json_str)
+    if trip == "ON" and no == 0:
+        for i in range(5):
+            history_list[i] = history_list[i] + "なし　"
 
     ## 該当者のファイルのみ抽出
     # 氏名判定
     for list, has_more in lookahead(json_list):
-        l_name = list["name"]["DisplayName"]
-        l_name = l_name.replace(' ','')
+        if trip == "ON":
+            l_name = "定禅寺"
+        else:
+            l_name = list["name"]["DisplayName"]
+            l_name = l_name.replace(' ','')
 
         if g_name in l_name:
             ## 一致した場合、日付判定
             for i in range(len(history_list)):     #列数繰り返し
                 #print(list["get_date"])
-                # 勤務状態設定
-                if str(list["get_date"]) in history_list[i]:
-                    l_timeoff = ""
-                    if list["time_off"]["Value"] != "-" and list["time_off"]["Value"] != "無":
-                        l_timeoff = "/" + list["time_off"]["Value"]
-                    history_list[i] = history_list[i] + ":" +list["state"]["Value"] + l_timeoff
+                if trip == "ON":
+                    if str(list["get_date"]) in history_list[i]:
+                        if l_name in str(list["state"]["Value"]):
+                            lstr = list["name"]["DisplayName"]
+                            s_str = lstr.find("(") + 1
+                            e_str = lstr.find(")")
+                            lstr = lstr[s_str:e_str]
+                            history_list[i] = history_list[i] + lstr + ".　"
+                else:
+                    # 勤務状態設定
+                    if str(list["get_date"]) in history_list[i]:
+                        l_timeoff = ""
+                        if list["time_off"]["Value"] != "-" and list["time_off"]["Value"] != "無":
+                            l_timeoff = "/" + list["time_off"]["Value"]
+                        history_list[i] = history_list[i] + ":" +list["state"]["Value"] + l_timeoff
 
-                    # フレックス情報設定
-                    if str(list["flex"]["Value"]) == "有":
-                        l_flex = str(list["flex_s_time"]) + "~" + str(list["flex_e_time"])
-                        l_flex = l_flex.replace('フレ：','')
-                        l_flex = l_flex.replace('\u3000','')
-                        history_list[i] = history_list[i] + "(フレックス " + l_flex + ")"
-                        #history_list[i] = history_list[i].encode(encoding='utf-8')
-                    # 時間休情報設定
-                    if str(list["time_off"]["Value"]) == "有":
-                        history_list[i] = history_list[i] + "(時間休 " + str(list["time_off_s_time"]) + str(list["time_off_e_time"])  + ")"
-            #print(history_list)
+                        # フレックス情報設定
+                        if str(list["flex"]["Value"]) == "有":
+                            l_flex = str(list["flex_s_time"]) + "~" + str(list["flex_e_time"])
+                            l_flex = l_flex.replace('フレ：','')
+                            l_flex = l_flex.replace('\u3000','')
+                            history_list[i] = history_list[i] + "(フレックス " + l_flex + ")"
+                            #history_list[i] = history_list[i].encode(encoding='utf-8')
+                        # 時間休情報設定
+                        if str(list["time_off"]["Value"]) == "有":
+                            history_list[i] = history_list[i] + "(時間休 " + str(list["time_off_s_time"]) + str(list["time_off_e_time"])  + ")"
+                #print(history_list)
 
-    for i in range(len(history_list)):     #列数繰り返し
-        if "土" in history_list[i] or "日" in history_list[i]:
-            history_list[i] = history_list[i] + ":-----"
-        if len(history_list[i]) <= 11:
-            history_list[i] = history_list[i] + ":出社"
-        #年月日挿入
-        tmp_str = history_list[i]
-        l_day = tmp_str[6:8] + "日"
-        l_mon = tmp_str[4:6] + "月"
-        l_year = tmp_str[0:4] + "年"
-        history_list[i] = l_year + l_mon + l_day + tmp_str[8:]
+    if trip != "ON":
+        for i in range(len(history_list)):     #列数繰り返し
+            if "土" in history_list[i] or "日" in history_list[i]:
+                history_list[i] = history_list[i] + ":-----"
+            if len(history_list[i]) <= 11:
+                history_list[i] = history_list[i] + ":出社"
+            #年月日挿入
+            tmp_str = history_list[i]
+            l_day = tmp_str[6:8] + "日"
+            l_mon = tmp_str[4:6] + "月"
+            l_year = tmp_str[0:4] + "年"
+            history_list[i] = l_year + l_mon + l_day + tmp_str[8:]
+    if trip == "ON" and no == 1:
+        for i in range(len(history_list)):     #列数繰り返し
+            tmp_str = history_list[i]
+            history_list[i] = tmp_str[11:]
+    if trip == "ON" and no == 0:
+        for i in range(len(history_list)):     #列数繰り返し
+            #年月日挿入
+            tmp_str = history_list[i]
+            l_day = tmp_str[6:8] + "日"
+            l_mon = tmp_str[4:6] + "月"
 
+            history_list[i] = l_mon + l_day + tmp_str[8:]
     ## 当日-1日+3日間の計5日間のリストを作成
     person_history = {
         "day1":history_list[0],
@@ -1135,7 +1266,7 @@ def get_workhis(path,no,name):
 
     ## JSONファイルを返却
 
-    return json.dumps(person_history)
+    return json.dumps(person_history, ensure_ascii=False)
 
 file_update_time = ["no","no","no","no","no","no","no","no","no","no",
                     "no","no","no","no","no","no","no","no","no","no",
@@ -1158,7 +1289,7 @@ def get_work(path,no):
     n_time = now.strftime('%Y/%m/%d')
     #print(now)
     
-    file_temp = R""+ global_cloud_dir + "worktime/last_time.txt"
+    file_temp = R""+ global_cloud_dir + "share_data/worktime/last_time.txt"
     
     up_t = os.path.getmtime(file_temp)
     up_t_int = datetime.fromtimestamp(up_t)
@@ -1170,7 +1301,7 @@ def get_work(path,no):
     #print(n_time,len(n_time),up_t_str,len(n_time))
     if(no == "35" or no == "11"):
         #print("One Drive Update")
-        dummy_temp = R""+ global_cloud_dir + "worktime/dumy.txt"
+        dummy_temp = R""+ global_cloud_dir + "share_data/dumy2.txt"
         f_dummy = open(dummy_temp,'w')
         f_dummy.write(str(now))
         f_dummy.close()
@@ -1240,13 +1371,34 @@ def get_work(path,no):
         #ファイル時間更新
         file_update_time[ int(no)] = str(d)
 
-
     #TEAMSのJSONファイル読込
     file_json = path
     fp_in = open (file_json,encoding='utf-8')
     json_str = fp_in.read()
     fp_in.close()
-    dict_src_json = json.loads(json_str)
+    r_ret = "OK"
+    try:
+        dict_src_json = json.loads(json_str)
+    except json.JSONDecodeError as e:
+        r_ret = "NG"
+    except OSError as e:
+        r_ret = "NG"
+
+    dst_path = './backup/last_teams_json'
+    src_path = file_json
+    #エラーの場合前回のファイルを利用して表示する　★
+    if r_ret == "NG":
+        ret = src_path.rfind('/')
+        src_path = src_path[ret:]
+        src_path = dst_path + src_path
+        fp_in = open (src_path,encoding='utf-8')
+        json_str = fp_in.read()
+        fp_in.close()
+        dict_src_json = json.loads(json_str)
+        print("バックアップデータ利用",src_path)
+    else:
+        #前回のファイルをバックアップする　★
+        shutil.copy(src_path, dst_path)
     
     #課、係を7名想定で空白で調整
     list_count = 7      #列の最大数
@@ -1265,7 +1417,10 @@ def get_work(path,no):
         fp_in = open (file_name,encoding='utf-8')
         json_str = fp_in.read()
         fp_in.close()
-        dict_old_json = json.loads(json_str)
+        try:
+            dict_old_json = json.loads(json_str)
+        except json.JSONDecodeError as e:
+            print("teams JSON ファイル読み込みエラー")
 
     #表示用JSONファイル作成
     f_flg = 0
@@ -1404,6 +1559,14 @@ def get_work(path,no):
                 print("リセット１回目！！！",no_cnt)
                 last_cnt = last_cnt + 1
                 make_freeseat_data("","","RESET","","") #フリー座席リセット
+                ##座席表バックアップ
+                dst_path = './backup/' + str(last_cnt)
+                src_path = './SeatData_h_free4f_temp.json'
+                shutil.copy(src_path, dst_path)
+                src_path = './SeatData_h_free5f_temp.json'
+                shutil.copy(src_path, dst_path)
+                src_path = './SeatData_h_free6f_temp.json'
+                shutil.copy(src_path, dst_path)
             if last_cnt > 5:
                 last_cnt = 1
             print("リセットカウント",last_cnt)
@@ -1438,7 +1601,7 @@ def getRequest():
     else:
         return "GET Method"
 
-##デバッグ操作
+##デバッグ機能#############################################################
 def debug_ctl(lpass,lsect,ltxt):
     print("デバッグ操作",lpass,lsect,ltxt)
     if global_pass != lpass:
@@ -1458,7 +1621,119 @@ def debug_ctl(lpass,lsect,ltxt):
 def debug_ctl_get(lpass,lsect,ltxt):
     print("デバッグ情報取得",lpass,lsect,ltxt)
     #勤怠管理中間ファイル確認（WorkData_temp_xx.json）
+    work_files = [
+        "new_work_10.json",
+        "new_work_11.json",
+        "new_work_14.json",
+        "new_work_15.json",
+        "new_work_20.json",
+        "new_work_21.json",
+        "new_work_22.json",
+        "new_work_23.json",
+        "new_work_24.json",
+        "new_work_30.json",
+        "new_work_31.json",
+        "new_work_32.json",
+        "new_work_33.json",
+        "new_work_34.json",
+        "new_work_35.json",
+        "new_work_36.json",
+        "new_work_37.json",
+        "new_work_39.json",
+        "new_work_his_musen.json",
+        "new_work_his_system.json",
+        "new_work_his_AI.json",
+        "./teams_data/WorkData_temp_10.json",
+        "./teams_data/WorkData_temp_11.json",
+        "./teams_data/WorkData_temp_14.json",
+        "./teams_data/WorkData_temp_15.json",
+        "./teams_data/WorkData_temp_20.json",
+        "./teams_data/WorkData_temp_21.json",
+        "./teams_data/WorkData_temp_22.json",
+        "./teams_data/WorkData_temp_23.json",
+        "./teams_data/WorkData_temp_24.json",
+        "./teams_data/WorkData_temp_30.json",
+        "./teams_data/WorkData_temp_31.json",
+        "./teams_data/WorkData_temp_32.json",
+        "./teams_data/WorkData_temp_33.json",
+        "./teams_data/WorkData_temp_34.json",
+        "./teams_data/WorkData_temp_35.json",
+        "./teams_data/WorkData_temp_36.json",
+        "./teams_data/WorkData_temp_37.json",
+        "./teams_data/WorkData_temp_39.json"
+    ]
+    work_path = [
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/",
+        R""+ global_cloud_dir + "share_data/history/",
+        R""+ global_cloud_dir + "share_data/history/",
+        R""+ global_cloud_dir + "share_data/history/",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ]
+    read_res = [[0] * 3 for i in range(len(work_files))]
 
+    for i in range(len(work_files)):
+        read_str = ""
+        try:
+            #ファイル名設定
+            read_res[i][0]=work_files[i]
+
+            #ファイルタイムスタンプ調査
+            lpath = work_path[i] + work_files[i]
+            read_str = os.path.getmtime(lpath)
+            read_str = datetime.fromtimestamp(read_str)
+            read_res[i][1]=read_str
+
+            #ファイル要素数調査
+            f = open (lpath,encoding='utf-8')
+            json_str = f.read()
+            ch_file = json.loads(json_str)
+            f.close()
+            read_res[i][2]=0
+            for list, has_more in lookahead(ch_file):
+                read_res[i][2]=read_res[i][2]+1
+          
+        except OSError as e:
+            read_str = "ファイル読み込みエラー"
+            read_res[i]="NG"
+
+    #print(read_res)
+    return read_res
+    
+    print(read_res)
     #座席表用勤怠情報一覧ファイル確認(xxxxSeatData)
 
     #浜松座席データファイル一覧

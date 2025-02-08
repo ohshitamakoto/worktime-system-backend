@@ -597,7 +597,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/07 16:30:00"
     },
     {
         "name": {
@@ -637,7 +637,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/07 16:30:00"
     },
     {
         "name": {
@@ -651,8 +651,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 4,
+            "Value": "年休"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -666,18 +666,18 @@
         },
         "time_off": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 1,
-            "Value": "時間休（13:15～14:15）"
+            "Id": 0,
+            "Value": "-"
         },
-        "work_s_time": "0900",
+        "work_s_time": "",
         "work_e_time": "",
-        "home_s_time": "0900",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
-        "flex_e_time": null,
-        "time_off_s_time": "13:15",
-        "time_off_e_time": "14:15",
-        "get_time": "2025/02/03 17:30:00"
+        "flex_e_time": "　",
+        "time_off_s_time": null,
+        "time_off_e_time": null,
+        "get_time": "2025/02/07 16:30:00"
     },
     {
         "name": {
@@ -717,7 +717,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/07 16:30:00"
     },
     {
         "name": {
@@ -754,10 +754,10 @@
         "home_s_time": "9:00",
         "home_e_time": null,
         "flex_s_time": null,
-        "flex_e_time": "　",
+        "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/07 16:30:00"
     },
     {
         "name": {
@@ -797,7 +797,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/07 16:30:00"
     },
     {
         "name": "None",

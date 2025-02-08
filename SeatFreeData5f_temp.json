@@ -120,13 +120,13 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -174,7 +174,7 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -186,31 +186,7 @@
     "sect": "-"
   },
   {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -228,25 +204,13 @@
     "sect": "-"
   },
   {
-    "name": "通路",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -276,37 +240,13 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -336,7 +276,7 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -360,43 +300,13 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -426,6 +336,36 @@
     "sect": "-"
   },
   {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
     "name": "通路",
     "state": "-",
     "substate": "-",
@@ -450,13 +390,73 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "内線502",
+    "state": "",
+    "substate": "",
+    "sect": 1
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -510,7 +510,7 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -535,7 +535,7 @@
   },
   {
     "name": "入口",
-    "state": "●",
+    "state": "-",
     "substate": "",
     "sect": 0
   },
@@ -588,10 +588,10 @@
     "sect": "-"
   },
   {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
+    "name": "内線501",
+    "state": "",
+    "substate": "",
+    "sect": 1
   },
   {
     "name": "通路",
@@ -612,109 +612,13 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -756,13 +660,7 @@
     "sect": "-"
   },
   {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -774,7 +672,7 @@
     "sect": "-"
   },
   {
-    "name": "通路",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -793,6 +691,78 @@
   },
   {
     "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -888,13 +858,43 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "通路",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -924,13 +924,13 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -942,13 +942,13 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -984,10 +984,10 @@
     "sect": "-"
   },
   {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
+    "name": "内線503",
+    "state": "",
+    "substate": "",
+    "sect": 1
   },
   {
     "name": "通路",
@@ -1038,7 +1038,7 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -1056,67 +1056,13 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "通路",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
-    "state": "-",
-    "substate": "-",
-    "sect": "-"
-  },
-  {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -1146,7 +1092,7 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
@@ -1164,13 +1110,67 @@
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
   },
   {
-    "name": "机",
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "内線504",
+    "state": "",
+    "substate": "",
+    "sect": 1
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
     "state": "-",
     "substate": "-",
     "sect": "-"
