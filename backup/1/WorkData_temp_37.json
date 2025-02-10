@@ -11,8 +11,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 4,
-            "Value": "年休"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -29,15 +29,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "",
+        "work_s_time": "9:00",
         "work_e_time": "",
         "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
-        "flex_e_time": "　",
+        "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": "None",
@@ -147,8 +147,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -165,15 +165,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "09:00",
+        "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": "09:00",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -213,7 +213,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -253,7 +253,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -293,7 +293,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -307,8 +307,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -325,15 +325,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "09:00",
+        "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": "09:00",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": "None",
@@ -379,168 +379,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
-        },
-        "team": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 25,
-            "Value": "37-2係"
-        },
-        "flex": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 1,
-            "Value": "無"
-        },
-        "time_off": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
             "Id": 0,
-            "Value": "-"
-        },
-        "work_s_time": "09:00",
-        "work_e_time": "",
-        "home_s_time": "09:00",
-        "home_e_time": null,
-        "flex_s_time": null,
-        "flex_e_time": null,
-        "time_off_s_time": null,
-        "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
-    },
-    {
-        "name": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-            "Claims": "i:0#.f|membership|hayakawa.makoto@jp.panasonic.com",
-            "DisplayName": "早川 誠",
-            "Email": "hayakawa.makoto@jp.panasonic.com",
-            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=hayakawa.makoto@jp.panasonic.com",
-            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
-            "JobTitle": null
-        },
-        "state": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
-        },
-        "team": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 25,
-            "Value": "37-2係"
-        },
-        "flex": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 1,
-            "Value": "無"
-        },
-        "time_off": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "-"
-        },
-        "work_s_time": "8:50",
-        "work_e_time": "",
-        "home_s_time": "8:50",
-        "home_e_time": null,
-        "flex_s_time": null,
-        "flex_e_time": null,
-        "time_off_s_time": null,
-        "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
-    },
-    {
-        "name": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-            "Claims": "i:0#.f|membership|kumagai.kazuya@jp.panasonic.com",
-            "DisplayName": "熊谷 和也",
-            "Email": "kumagai.kazuya@jp.panasonic.com",
-            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=kumagai.kazuya@jp.panasonic.com",
-            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
-            "JobTitle": null
-        },
-        "state": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "出社(フレックス)"
-        },
-        "team": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 25,
-            "Value": "37-2係"
-        },
-        "flex": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "有"
-        },
-        "time_off": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "-"
-        },
-        "work_s_time": "8:00",
-        "work_e_time": "16:30",
-        "home_s_time": null,
-        "home_e_time": null,
-        "flex_s_time": "フレ：8:00",
-        "flex_e_time": "フレ：16:30",
-        "time_off_s_time": null,
-        "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
-    },
-    {
-        "name": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-            "Claims": "i:0#.f|membership|yoshida.tatsuya004@jp.panasonic.com",
-            "DisplayName": "吉田 達矢",
-            "Email": "yoshida.tatsuya004@jp.panasonic.com",
-            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=yoshida.tatsuya004@jp.panasonic.com",
-            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
-            "JobTitle": null
-        },
-        "state": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
-        },
-        "team": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 25,
-            "Value": "37-2係"
-        },
-        "flex": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 1,
-            "Value": "無"
-        },
-        "time_off": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 0,
-            "Value": "-"
-        },
-        "work_s_time": "09:00",
-        "work_e_time": "",
-        "home_s_time": "09:00",
-        "home_e_time": null,
-        "flex_s_time": null,
-        "flex_e_time": null,
-        "time_off_s_time": null,
-        "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
-    },
-    {
-        "name": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-            "Claims": "i:0#.f|membership|wada.nozomi@jp.panasonic.com",
-            "DisplayName": "和田 希",
-            "Email": "wada.nozomi@jp.panasonic.com",
-            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=wada.nozomi@jp.panasonic.com",
-            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
-            "JobTitle": null
-        },
-        "state": {
-            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": -1,
-            "Value": "出張(定禅寺オフィス)"
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -562,10 +402,170 @@
         "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
-        "flex_e_time": "　",
+        "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
+    },
+    {
+        "name": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+            "Claims": "i:0#.f|membership|hayakawa.makoto@jp.panasonic.com",
+            "DisplayName": "早川 誠",
+            "Email": "hayakawa.makoto@jp.panasonic.com",
+            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=hayakawa.makoto@jp.panasonic.com",
+            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
+            "JobTitle": null
+        },
+        "state": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "出社"
+        },
+        "team": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 25,
+            "Value": "37-2係"
+        },
+        "flex": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 1,
+            "Value": "無"
+        },
+        "time_off": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "-"
+        },
+        "work_s_time": "9:00",
+        "work_e_time": "",
+        "home_s_time": null,
+        "home_e_time": null,
+        "flex_s_time": null,
+        "flex_e_time": null,
+        "time_off_s_time": null,
+        "time_off_e_time": null,
+        "get_time": "2025/02/09 17:30:00"
+    },
+    {
+        "name": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+            "Claims": "i:0#.f|membership|kumagai.kazuya@jp.panasonic.com",
+            "DisplayName": "熊谷 和也",
+            "Email": "kumagai.kazuya@jp.panasonic.com",
+            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=kumagai.kazuya@jp.panasonic.com",
+            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
+            "JobTitle": null
+        },
+        "state": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "出社"
+        },
+        "team": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 25,
+            "Value": "37-2係"
+        },
+        "flex": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 1,
+            "Value": "無"
+        },
+        "time_off": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "-"
+        },
+        "work_s_time": "9:00",
+        "work_e_time": "",
+        "home_s_time": null,
+        "home_e_time": null,
+        "flex_s_time": null,
+        "flex_e_time": null,
+        "time_off_s_time": null,
+        "time_off_e_time": null,
+        "get_time": "2025/02/09 17:30:00"
+    },
+    {
+        "name": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+            "Claims": "i:0#.f|membership|yoshida.tatsuya004@jp.panasonic.com",
+            "DisplayName": "吉田 達矢",
+            "Email": "yoshida.tatsuya004@jp.panasonic.com",
+            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=yoshida.tatsuya004@jp.panasonic.com",
+            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
+            "JobTitle": null
+        },
+        "state": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "出社"
+        },
+        "team": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 25,
+            "Value": "37-2係"
+        },
+        "flex": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 1,
+            "Value": "無"
+        },
+        "time_off": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "-"
+        },
+        "work_s_time": "9:00",
+        "work_e_time": "",
+        "home_s_time": null,
+        "home_e_time": null,
+        "flex_s_time": null,
+        "flex_e_time": null,
+        "time_off_s_time": null,
+        "time_off_e_time": null,
+        "get_time": "2025/02/09 17:30:00"
+    },
+    {
+        "name": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+            "Claims": "i:0#.f|membership|wada.nozomi@jp.panasonic.com",
+            "DisplayName": "和田 希",
+            "Email": "wada.nozomi@jp.panasonic.com",
+            "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=wada.nozomi@jp.panasonic.com",
+            "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３７課",
+            "JobTitle": null
+        },
+        "state": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "出社"
+        },
+        "team": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 25,
+            "Value": "37-2係"
+        },
+        "flex": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 1,
+            "Value": "無"
+        },
+        "time_off": {
+            "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            "Id": 0,
+            "Value": "-"
+        },
+        "work_s_time": "9:00",
+        "work_e_time": "",
+        "home_s_time": null,
+        "home_e_time": null,
+        "flex_s_time": null,
+        "flex_e_time": null,
+        "time_off_s_time": null,
+        "time_off_e_time": null,
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": "None",
@@ -611,8 +611,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -629,15 +629,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "09:00",
+        "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": "09:00",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -651,8 +651,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -669,15 +669,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "09:00",
+        "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": "09:00",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -717,7 +717,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -731,8 +731,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -749,15 +749,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "08:00",
+        "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": "08:00",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -771,8 +771,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -789,15 +789,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "09:00",
+        "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": "09:00",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": "None",
@@ -869,7 +869,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -909,7 +909,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -949,7 +949,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -989,7 +989,7 @@
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": {
@@ -1003,8 +1003,8 @@
         },
         "state": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-            "Id": 2,
-            "Value": "在宅勤務中"
+            "Id": 0,
+            "Value": "出社"
         },
         "team": {
             "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -1021,15 +1021,15 @@
             "Id": 0,
             "Value": "-"
         },
-        "work_s_time": "09:00",
+        "work_s_time": "9:00",
         "work_e_time": "",
-        "home_s_time": "09:00",
+        "home_s_time": null,
         "home_e_time": null,
         "flex_s_time": null,
         "flex_e_time": null,
         "time_off_s_time": null,
         "time_off_e_time": null,
-        "get_time": "2025/02/03 17:30:00"
+        "get_time": "2025/02/09 17:30:00"
     },
     {
         "name": "None",

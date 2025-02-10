@@ -585,8 +585,9 @@ def kintai_debug():
         #以下の状態を返却
         #OneDrive格納ファイル（JSON正当性、タイムスタンプ）
         #中間ファイル（JSON正当性、タイムスタンプ）
-        return debug_ctl_get("","","")
-        #return "OK"
+        #return debug_ctl_get("","","")
+        get_chart_info()
+        return "OK"
     else:
         print("デバッグモードへのアクセス POST")
         #OneDrivbeの更新
@@ -632,15 +633,18 @@ def get_work_trip_info():
 
 @app.route("/w_info", methods=['GET'])
 def get_work_w_info():
-    get_work_seat()
-    get_work_seat_s2f()
-    get_work_seat_k7fs2()
-    get_work_seat_k7fp2()
+    #file_json = R""+ global_cloud_dir + "share_data/seatinfo/sendai_zaseki3f.json"
+    #get_seat_info(file_json,'./SeatData_s_3f_temp.json',"./teams_data/jointData_SendaiSeat_3f.json",0)
+    #get_work_seat()
+    #get_work_seat_s2f()
+    #get_work_seat_k7fs2()
+    #get_work_seat_k7fp2()
     #get_work_seat_h()
-    get_work_seat_h_free4f()
-    get_work_seat_h_free5f()
-    get_work_seat_h_free6f()
-    get_work_seat_j()
+    #get_work_seat_h_free4f()
+    #get_work_seat_h_free5f()
+    #get_work_seat_h_free6f()
+    #get_work_seat_j()
+    get_chart_info()
     file_json = R""+ global_cloud_dir + "share_data/json_tmp/psnrd_data.json"
     fp_seat = open (file_json, encoding='utf-8')
     json_kintai_str = fp_seat.read()
@@ -814,8 +818,8 @@ def set_work_content(path,lmsg,ltenki):
 
 def get_seat_info(path, tmp_path, out_f, place_num):
     #チャート用集計リスト初期化
-    for x in range(5):
-        chart_list[place_num][x] = 0
+    #for x in range(5):
+    #    chart_list[place_num][x] = 0
 
     #座席のJSONファイル読込
     file_json = path
@@ -890,6 +894,9 @@ def get_seat_info(path, tmp_path, out_f, place_num):
     #output_file = "./teams_data/SendaiSeatData.json"
     output_file = out_f
     combine_json_files(input_files, output_file)
+    src_path = output_file
+    dst_path = "./teams_data/jointData_PsnrdSeat.json"
+    shutil.copy(src_path,dst_path)
     #print("OK--------")
     #仙台座席用JSON読み込み
     file_json = output_file
@@ -909,8 +916,8 @@ def get_seat_info(path, tmp_path, out_f, place_num):
             #勤怠JSONから状態を設定
             sate,name,sub,chart_data = get_kintai_state(seat_name,dict_kintai_json)
             
-            if chart_data <= 4:
-                chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
+            #if chart_data <= 4:
+            #    chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
 
             #print(seat_name, sate)
             list["state"] = ""
@@ -934,27 +941,95 @@ def get_seat_info(path, tmp_path, out_f, place_num):
     dict_ret = json.loads(json_kintai_str)
 
     #浜松だけフリーアドレスのため再集計　chart_list　1,2,3,4
-    if place_num >= 5 and place_num <= 7:
-        file_json = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_meibo.json"
-        fp_seat = open (file_json,encoding='utf-8')
-        json_hmeibo_str = fp_seat.read()
-        hmeibo_json = json.loads(json_hmeibo_str)
-        fp_seat.close()
+    #if place_num >= 5 and place_num <= 7:
+    #    file_json = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_meibo.json"
+    #    fp_seat = open (file_json,encoding='utf-8')
+    #    json_hmeibo_str = fp_seat.read()
+    #    hmeibo_json = json.loads(json_hmeibo_str)
+    #    fp_seat.close()
 
-        chart_list[place_num][1] = 0
-        chart_list[place_num][2] = 0
-        chart_list[place_num][3] = 0
-        chart_list[place_num][4] = 0
+    #    chart_list[place_num][1] = 0
+    #    chart_list[place_num][2] = 0
+    #    chart_list[place_num][3] = 0
+    #    chart_list[place_num][4] = 0
 
-        if place_num == 5:
-            for list, has_more in lookahead(hmeibo_json):
-                seat_name = list["name"]
-                sate,name,sub,chart_data = get_kintai_state(seat_name,dict_kintai_json)
-                if chart_data >= 1 and chart_data <= 4:
-                    chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
-                #print(seat_name,chart_data)
+    #    if place_num == 5:
+    #        for list, has_more in lookahead(hmeibo_json):
+    #            seat_name = list["name"]
+    #            sate,name,sub,chart_data = get_kintai_state(seat_name,dict_kintai_json)
+    #            if chart_data >= 1 and chart_data <= 4:
+    #                chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
+    #            #print(seat_name,chart_data)
 
     return make_response(jsonify(dict_ret))
+
+##情報収集簡易版
+def get_chart_info():
+    input_files = ["./SeatData_s_3f_temp.json",
+                "./SeatData_s_2f_temp.json",
+                "./SeatData_k_7fs_temp.json",
+                "./SeatData_k_7fp_temp.json",
+                "./SeatData_j_6f_temp.json",
+                "./SeatData_h_free4f_temp.json",
+                "./SeatData_h_free5f_temp.json",
+                "./SeatData_h_free6f_temp.json"]
+
+    #チャート用集計リスト初期化
+    for x in range(5):
+        for y in range(len(input_files)):
+            chart_list[y][x] = 0
+
+    #print("OK--------")
+    #PSNRD JSON読み込み
+    file_json = "./teams_data/jointData_PsnrdSeat.json"
+    fp_seat = open (file_json,encoding='utf-8')
+    json_kintai_str = fp_seat.read()
+    dict_kintai_json = json.loads(json_kintai_str)
+    fp_seat.close()
+
+
+    for x in range(len(input_files)):
+        file_json = input_files[x]
+        #print(file_json)
+        fp_zaseki = open (file_json,encoding='utf-8')
+        json_str = fp_zaseki.read()
+        dict_src_json = json.loads(json_str)
+        fp_zaseki.close()
+
+        place_num = x
+        for list, has_more in lookahead(dict_src_json):
+            #氏名(柱、通路以外）の場合情報を検索
+            #座席氏名を設定
+            seat_name = list["name"]
+            #勤怠JSONから状態を設定
+            sate,name,sub,chart_data = get_kintai_state(seat_name,dict_kintai_json)
+
+            if chart_data <= 4:
+                chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
+
+
+        #浜松だけフリーアドレスのため再集計　chart_list　1,2,3,4
+        if place_num >= 5 and place_num <= 7:
+            file_json = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_meibo.json"
+            fp_seat = open (file_json,encoding='utf-8')
+            json_hmeibo_str = fp_seat.read()
+            hmeibo_json = json.loads(json_hmeibo_str)
+            fp_seat.close()
+
+            chart_list[place_num][1] = 0
+            chart_list[place_num][2] = 0
+            chart_list[place_num][3] = 0
+            chart_list[place_num][4] = 0
+
+            if place_num == 5:
+                for list, has_more in lookahead(hmeibo_json):
+                    seat_name = list["name"]
+                    sate,name,sub,chart_data = get_kintai_state(seat_name,dict_kintai_json)
+                    if chart_data >= 1 and chart_data <= 4:
+                        chart_list[place_num][chart_data] = chart_list[place_num][chart_data] + 1
+                    #print(seat_name,chart_data)
+    #print(chart_list)
+    return "OK"
 
 def get_kintai_state(name, find_list):
     #非表示の文字は空を返却
@@ -1008,8 +1083,10 @@ def get_chart_data(name):
         ret = 2 #'home'
     elif "出張" in name:
         ret = 3 #'trip'
+    elif "年休" in name:
+        ret = 4 #'rest'
     else:
-        ret = 4 #'rest' 年休
+        ret = 5 #'その他'
 
     return ret
 
@@ -1402,7 +1479,8 @@ def get_work(path,no):
     
     #課、係を7名想定で空白で調整
     list_count = 7      #列の最大数
-    new_data = {"name": "None", "state": "None", "team": "None", "flex":"None","time_off":"None","work_s_time":None,"work_e_time":None,"home_s_time":None,"home_e_time":None,"flex_s_time":None,"flex_e_time":None,"time_off_s_time":None,"time_off_e_time":None,"get_time":"None"}
+    ltime = dict_src_json[0]["get_time"]
+    new_data = {"name": "None", "state": "None", "team": "None", "flex":"None","time_off":"None","work_s_time":None,"work_e_time":None,"home_s_time":None,"home_e_time":None,"flex_s_time":None,"flex_e_time":None,"time_off_s_time":None,"time_off_e_time":None,"get_time":ltime}
     
     team_list = ["35","1係","2係","3係","4係","5係"]
 

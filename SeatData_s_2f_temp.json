@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2025/02/08 22:30:00",
+  "state": "2025/02/10 21:30:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -145,17 +145,17 @@
   "sect": 21
 },{
   "name": "小野寺徹",
-  "state": "出社",
+  "state": "部分在宅",
   "substate": "-",
   "sect": 21
 },{
   "name": "大和田竜",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 21
 },{
   "name": "大場雄彦",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": "-"
 },{
@@ -190,17 +190,17 @@
   "sect": 21
 },{
   "name": "町川惣",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": "-"
 },{
   "name": "須山哲司",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": "-"
 },{
   "name": "高橋堅一",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": "-"
 },{
@@ -210,7 +210,7 @@
   "sect": 21
 },{
   "name": "相原靖雄",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 21
 },{
@@ -275,17 +275,17 @@
   "sect": "-"
 },{
   "name": "佐藤隆広",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 21
 },{
   "name": "佐藤公一",
   "state": "出社",
-  "substate": "-",
+  "substate": "時間休",
   "sect": 21
 },{
   "name": "安部勇吾",
-  "state": "出社",
+  "state": "出社(フ",
   "substate": "-",
   "sect": 21
 },{
@@ -300,7 +300,7 @@
   "sect": 21
 },{
   "name": "浅野仁",
-  "state": "出社",
+  "state": "在宅終了",
   "substate": "-",
   "sect": 21
 },{
@@ -425,17 +425,17 @@
   "sect": "-"
 },{
   "name": "馬渕雄志",
-  "state": "出社",
+  "state": "在宅終了",
   "substate": "-",
   "sect": 21
 },{
   "name": "東海林拓",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 21
 },{
   "name": "渥美紘一",
-  "state": "出社",
+  "state": "出張(M",
   "substate": "-",
   "sect": 21
 },{
@@ -685,17 +685,17 @@
   "sect": 14
 },{
   "name": "木村亨",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
   "name": "秋村秀春",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
   "name": "辻本直弘",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
@@ -740,17 +740,17 @@
   "sect": 14
 },{
   "name": "鈴木秀典",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
   "name": "横下裕大",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
   "name": "大沼恭介",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
@@ -815,8 +815,8 @@
   "sect": "-"
 },{
   "name": "高橋健治",
-  "state": "出社",
-  "substate": "-",
+  "state": "退勤",
+  "substate": "午前休",
   "sect": 14
 },{
   "name": "戸田諭",
@@ -835,7 +835,7 @@
   "sect": 14
 },{
   "name": "堀合孝宣",
-  "state": "出社",
+  "state": "在宅勤務",
   "substate": "-",
   "sect": 14
 },{
@@ -860,7 +860,7 @@
   "sect": "-"
 },{
   "name": "大森洋明",
-  "state": "出社",
+  "state": "在宅勤務",
   "substate": "-",
   "sect": 14
 },{
@@ -870,7 +870,7 @@
   "sect": 14
 },{
   "name": "中川裕人",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
@@ -880,17 +880,17 @@
   "sect": 14
 },{
   "name": "小野悠",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
   "name": "小池貴章",
-  "state": "出社",
+  "state": "在宅終了",
   "substate": "-",
   "sect": 14
 },{
   "name": "松田孝基",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
@@ -955,8 +955,8 @@
   "sect": 14
 },{
   "name": "菊地弘准",
-  "state": "出社",
-  "substate": "-",
+  "state": "部分在宅",
+  "substate": "午前休",
   "sect": 14
 },{
   "name": "相澤廣樹",
@@ -965,18 +965,18 @@
   "sect": 14
 },{
   "name": "表航平",
-  "state": "出社",
+  "state": "在宅終了",
   "substate": "-",
   "sect": 14
 },{
   "name": "小向康文",
-  "state": "出社",
+  "state": "在宅終了",
   "substate": "-",
   "sect": 14
 },{
   "name": "今野大悟",
   "state": "出社",
-  "substate": "-",
+  "substate": "時間休",
   "sect": 14
 },{
   "name": "出張者",
@@ -1005,17 +1005,17 @@
   "sect": 14
 },{
   "name": "福嶋大希",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
   "name": "高橋志勢",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
   "name": "深澤信昭",
-  "state": "出社",
+  "state": "年休",
   "substate": "-",
   "sect": 14
 },{
