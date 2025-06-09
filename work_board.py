@@ -162,9 +162,6 @@ def makeDisplayJson(j_str):
         if "西方 友美" in sp_name:
             j_str["state"]["Value"] = j_str["state"]["Value"] + "（大阪転勤）"
             ##j_str["work_s_time"] = ""
-        #if "菊地 和彦" in sp_name:
-        #    j_str["state"]["Value"] = "退勤"
-        #    j_str["work_s_time"] = ""
         if "高橋 寛" in sp_name:
             j_str["state"]["Value"] = "退勤"
             j_str["work_s_time"] = ""
