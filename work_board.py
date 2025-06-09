@@ -144,30 +144,42 @@ def makeDisplayJson(j_str):
         if "横長" in sp_name:
             sp_name = sp_name + "（金沢）"
             j_str["name"]["DisplayName"] = sp_name
-        if "松本 悠佑" in sp_name:
-            sp_name = sp_name + "  *ITS"
-            j_str["name"]["DisplayName"] = sp_name
         if "鈴木 秀太" in sp_name:
-            j_str["state"]["Value"] = "（駐在中）"
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（駐在中）"
             j_str["work_s_time"] = ""
         if "菊地 慧" in sp_name:
-            j_str["state"]["Value"] = "（出向中）"
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（出向中）"
             j_str["work_s_time"] = ""
+        if "佐藤 優" in sp_name:
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（駐在中）"
+            ##j_str["work_s_time"] = ""
+        if "鈴木 章司" in sp_name:
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（佐江戸転勤）"
+            ##j_str["work_s_time"] = ""
+        if "今津 知也" in sp_name:
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（佐江戸転勤）"
+            ##j_str["work_s_time"] = ""
+        if "西方 友美" in sp_name:
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（大阪転勤）"
+            ##j_str["work_s_time"] = ""
         #if "菊地 和彦" in sp_name:
         #    j_str["state"]["Value"] = "退勤"
         #    j_str["work_s_time"] = ""
         if "高橋 寛" in sp_name:
             j_str["state"]["Value"] = "退勤"
             j_str["work_s_time"] = ""
+        if "鈴木 泰祐" in sp_name:
+            j_str["state"]["Value"] = "退勤"
+            j_str["work_s_time"] = ""
         if "村松 寿" in sp_name:
-            j_str["state"]["Value"] = "（出向中）"
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（出向中）"
             j_str["work_s_time"] = ""
     return j_str
 
 @app.route("/39", methods=['GET', "POST"])
 def get_work_39():
     if request.method == "GET":
-        file_json = R""+ global_cloud_dir + "share_data/work_39.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_39.json"
         return get_work(file_json,"39")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -291,6 +303,9 @@ def get_workhis():
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
         
+        if "name" not in switch:
+            #print(switch)
+            return "NG"
         if switch["name"] == None:
             return "NG"
         if switch["sect"] == None:
@@ -299,11 +314,11 @@ def get_workhis():
         lsect = int(switch["sect"])
         print(switch["name"],switch["sect"],lsect)
         if lsect<=19:
-            file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_musen.json"
+            file_json = R""+ global_cloud_dir + "share_data/new_work_his_musen.json"
         elif lsect<=29:
-            file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_system.json"
+            file_json = R""+ global_cloud_dir + "share_data/new_work_his_system.json"
         else:
-            file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_AI.json"
+            file_json = R""+ global_cloud_dir + "share_data/new_work_his_AI.json"
 
         return get_workhis(file_json,switch["sect"],switch["name"],"")
     
@@ -323,7 +338,7 @@ def get_work_34():
 @app.route("/33", methods=['GET', "POST"])
 def get_work_33():
     if request.method == "GET":
-        file_json = R""+ global_cloud_dir + "share_data/work_33.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_33.json"
         return get_work(file_json,"33")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -336,7 +351,7 @@ def get_work_33():
 @app.route("/32", methods=['GET', "POST"])
 def get_work_32():
     if request.method == "GET":
-        file_json = R""+ global_cloud_dir + "share_data/work_32.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_32.json"
         return get_work(file_json,"32")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -349,7 +364,7 @@ def get_work_32():
 @app.route("/31", methods=['GET', "POST"])
 def get_work_31():
     if request.method == "GET":
-        file_json = R""+ global_cloud_dir + "share_data/work_31.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_31.json"
         return get_work(file_json,"31")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -362,7 +377,7 @@ def get_work_31():
 @app.route("/30", methods=['GET', "POST"])
 def get_work_30():
     if request.method == "GET":
-        file_json = R""+ global_cloud_dir + "share_data/work_30.json"
+        file_json = R""+ global_cloud_dir + "share_data/new_work_30.json"
         return get_work(file_json,"30")
     else:
         switch = request.data.decode('utf-8')  # デコード
@@ -603,11 +618,11 @@ def kintai_debug():
 @app.route("/trip_info", methods=['GET'])
 def get_work_trip_info():
     trip_list = ["","","",""]
-    file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_musen.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_his_musen.json"
     ret1 = get_workhis(file_json,0,"定禅寺","ON")
-    file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_system.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_his_system.json"
     ret2 = get_workhis(file_json,1,"定禅寺","ON")
-    file_json = R""+ global_cloud_dir + "share_data/history/new_work_his_AI.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_his_AI.json"
     ret3 = get_workhis(file_json,1,"定禅寺","ON")
     json_list1 = json.loads(ret1)
     json_list2 = json.loads(ret2)
@@ -832,13 +847,13 @@ def get_seat_info(path, tmp_path, out_f, place_num):
     file_name = tmp_path
 
     #元になる中間ファイル再作成
-    file_json = R""+ global_cloud_dir + "share_data/work_30.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_30.json"
     get_work(file_json,"30")
-    file_json = R""+ global_cloud_dir + "share_data/work_31.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_31.json"
     get_work(file_json,"31")
-    file_json = R""+ global_cloud_dir + "share_data/work_32.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_32.json"
     get_work(file_json,"32")
-    file_json = R""+ global_cloud_dir + "share_data/work_33.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_33.json"
     get_work(file_json,"33")
     file_json = R""+ global_cloud_dir + "share_data/new_work_34.json"
     get_work(file_json,"34")
@@ -848,7 +863,7 @@ def get_seat_info(path, tmp_path, out_f, place_num):
     get_work(file_json,"36")
     file_json = R""+ global_cloud_dir + "share_data/new_work_37.json"
     get_work(file_json,"37")
-    file_json = R""+ global_cloud_dir + "share_data/work_39.json"
+    file_json = R""+ global_cloud_dir + "share_data/new_work_39.json"
     get_work(file_json,"39")
 
     file_json = R""+ global_cloud_dir + "share_data/work_10.json"
@@ -1278,13 +1293,16 @@ def get_workhis(path,no,name,trip):
             for i in range(len(history_list)):     #列数繰り返し
                 #print(list["get_date"])
                 if trip == "ON":
+                    
                     if str(list["get_date"]) in history_list[i]:
-                        if l_name in str(list["state"]["Value"]):
-                            lstr = list["name"]["DisplayName"]
-                            s_str = lstr.find("(") + 1
-                            e_str = lstr.find(")")
-                            lstr = lstr[s_str:e_str]
-                            history_list[i] = history_list[i] + lstr + ".　"
+                        #print(l_name,list["state"]["Value"],list["name"]["DisplayName"])
+                        if list["state"] != None:
+                            if l_name in str(list["state"]["Value"]):
+                                lstr = list["name"]["DisplayName"]
+                                s_str = lstr.find("(") + 1
+                                e_str = lstr.find(")")
+                                lstr = lstr[s_str:e_str]
+                                history_list[i] = history_list[i] + lstr + ".　"
                 else:
                     # 勤務状態設定
                     if str(list["get_date"]) in history_list[i]:
@@ -1485,8 +1503,9 @@ def get_work(path,no):
     team_list = ["35","1係","2係","3係","4係","5係"]
 
     if no == "14":
-        team_list = ["35","1係","2係","3係","4係","5係","6係"]
-
+        team_list = ["35","1係","2係","3係","4係","5係","6係","7"]
+    if no == "34":
+        team_list = ["35","1係","2係","3係","4係","5係","ITS"]
     team_count = 0
     team_list[0] = no   #対象課で再初期化
 
