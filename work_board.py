@@ -138,6 +138,9 @@ def makeDisplayJson(j_str):
         if "平野" in sp_name:
             sp_name = sp_name + "  *12課"
             j_str["name"]["DisplayName"] = sp_name
+        if "本田" in sp_name:
+            sp_name = sp_name + "  *マーケ"
+            j_str["name"]["DisplayName"] = sp_name
         if "宮崎 裕" in sp_name:
             sp_name = sp_name + "　（金沢）"
             j_str["name"]["DisplayName"] = sp_name
@@ -145,10 +148,13 @@ def makeDisplayJson(j_str):
             sp_name = sp_name + "（金沢）"
             j_str["name"]["DisplayName"] = sp_name
         if "鈴木 秀太" in sp_name:
-            j_str["state"]["Value"] = j_str["state"]["Value"] + "（駐在中）"
-            j_str["work_s_time"] = ""
-        if "菊地 慧" in sp_name:
             j_str["state"]["Value"] = j_str["state"]["Value"] + "（出向中）"
+            j_str["work_s_time"] = ""
+        if "田代 拳太郎" in sp_name:
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（出向中）"
+            j_str["work_s_time"] = ""
+        if "瀬野 了斗" in sp_name:
+            j_str["state"]["Value"] = j_str["state"]["Value"] + "（駐在中）"
             j_str["work_s_time"] = ""
         if "佐藤 優" in sp_name:
             j_str["state"]["Value"] = j_str["state"]["Value"] + "（駐在中）"
@@ -162,9 +168,9 @@ def makeDisplayJson(j_str):
         if "西方 友美" in sp_name:
             j_str["state"]["Value"] = j_str["state"]["Value"] + "（大阪転勤）"
             ##j_str["work_s_time"] = ""
-        if "高橋 寛" in sp_name:
-            j_str["state"]["Value"] = "退勤"
-            j_str["work_s_time"] = ""
+        ##if "高橋 寛" in sp_name:
+        ##    j_str["state"]["Value"] = "退勤"
+        ##    j_str["work_s_time"] = ""
         if "鈴木 泰祐" in sp_name:
             j_str["state"]["Value"] = "退勤"
             j_str["work_s_time"] = ""
@@ -185,6 +191,19 @@ def get_work_39():
         print(switch["num"])
         lstate = json_analyze(switch)
         ret = post_kintai_state("39",switch["num"],lstate)
+        return ret
+@app.route("/38", methods=['GET', "POST"])
+def get_work_38():
+    if request.method == "GET":
+        file_json = R""+ global_cloud_dir + "share_data/new_work_38.json"
+        return get_work(file_json,"38")
+    else:
+        switch = request.data.decode('utf-8')  # デコード
+        switch = json.loads(switch)
+        
+        print(switch["num"])
+        lstate = json_analyze(switch)
+        ret = post_kintai_state("38",switch["num"],lstate)
         return ret
 @app.route("/37", methods=['GET', "POST"])
 def get_work_37():
@@ -248,6 +267,10 @@ def get_work_50():
         lstate = json_analyze(switch)
         if switch["num"] >= 42:
             lnum = switch["num"] - 14
+            if switch["num"] == 49:
+                lnum = 1
+            if switch["num"] == 50:
+                lnum = 9
             ret = post_kintai_state("36",lnum,lstate)
         else:
             ret = post_kintai_state("35",switch["num"],lstate)
@@ -271,12 +294,22 @@ def combine_sect_json(output_file_1, output_file_2, output_file):
                 output_file.write(',')
         with open(output_file_2, 'r', encoding='utf-8') as file:
             data = json.load(file)
+            data_t1 = data[1]
+            data_t2 = data[9]
             del data[:28]
             del data[7:]
+            #data_add = json.load(file)
+            #json.dump(data_add[1], output_file, indent=2, ensure_ascii=False)
+            #output_file.write(',')
             for list, has_more in lookahead(data):
                 json.dump(list, output_file, indent=2, ensure_ascii=False)
                 if(has_more):
                     output_file.write(',')
+            output_file.write(',')
+            json.dump(data_t1, output_file, indent=2, ensure_ascii=False)
+            output_file.write(',')
+            json.dump(data_t2, output_file, indent=2, ensure_ascii=False)
+
         output_file.write(']')
 
     fp_in = open (lout_file,encoding='utf-8')
@@ -860,8 +893,8 @@ def get_seat_info(path, tmp_path, out_f, place_num):
     get_work(file_json,"36")
     file_json = R""+ global_cloud_dir + "share_data/new_work_37.json"
     get_work(file_json,"37")
-    file_json = R""+ global_cloud_dir + "share_data/new_work_39.json"
-    get_work(file_json,"39")
+    ##file_json = R""+ global_cloud_dir + "share_data/new_work_39.json"
+    ##get_work(file_json,"39")
 
     file_json = R""+ global_cloud_dir + "share_data/work_10.json"
     get_work(file_json,"10")
@@ -893,7 +926,6 @@ def get_seat_info(path, tmp_path, out_f, place_num):
                    "./teams_data/WorkData_temp_35.json",
                    "./teams_data/WorkData_temp_36.json",
                    "./teams_data/WorkData_temp_37.json",
-                   "./teams_data/WorkData_temp_39.json",
                    "./teams_data/WorkData_temp_10.json",
                    "./teams_data/WorkData_temp_11.json",
                    "./teams_data/WorkData_temp_14.json",
@@ -1224,7 +1256,7 @@ def make_freeseat_data(path,sect,kind,name,no):
 def get_workhis(path,no,name,trip):
     history_list = ["not supported","not supported","not supported","not supported","not supported"]
     day_name = ["（月）","（火）","（水）","（木）","（金）","（土）","（日）"]
-
+    
     if (os.path.exists(path)) == False:
         person_history = {
         "day1":history_list[0],
@@ -1279,9 +1311,11 @@ def get_workhis(path,no,name,trip):
     ## 該当者のファイルのみ抽出
     # 氏名判定
     for list, has_more in lookahead(json_list):
+        #print(list)
         if trip == "ON":
             l_name = "定禅寺"
         else:
+            #print(list)
             l_name = list["name"]["DisplayName"]
             l_name = l_name.replace(' ','')
 
@@ -1368,8 +1402,8 @@ file_update_time = ["no","no","no","no","no","no","no","no","no","no",
 file_state_reset = ["-","-","-","-","-","-","-","-","-","-",
                     "no","no","-","-","no","no","-","-","-","-",
                     "no","no","no","no","no","-","-","-","-","-",
-                    "no","no","no","no","no","no","no","no","-","no"]
-sect_dat = [10,11,14,15,20,21,22,23,24,30,31,32,33,34,35,36,37,39]
+                    "no","no","no","no","no","no","no","no","no","-"]
+sect_dat = [10,11,14,15,20,21,22,23,24,30,31,32,33,34,35,36,37,38]
 ### TeamsのJSONファイルを取得し、表示用のJSONファイルに変換して返却
 ###
 def get_work(path,no):
@@ -1500,9 +1534,17 @@ def get_work(path,no):
     team_list = ["35","1係","2係","3係","4係","5係"]
 
     if no == "14":
-        team_list = ["35","1係","2係","3係","4係","5係","6係","7"]
+        team_list = ["35","1係","2係","3係","4係","5係","派遣"]
+    if no == "11" or no == "21":
+        team_list = ["35","1係","2係","3係","4係"]
+    if no == "15":
+        team_list = ["35","1係","2係","3係","4係"]
     if no == "34":
         team_list = ["35","1係","2係","3係","4係","5係","ITS"]
+    if no == "33":
+        team_list = ["35","1係","2係","3係","4係","5係","6係"]
+    if no == "38" or no == "30":
+        team_list = ["38","1","2係","3係","4係"]
     team_count = 0
     team_list[0] = no   #対象課で再初期化
 
@@ -1543,10 +1585,14 @@ def get_work(path,no):
                     make = makeDisplayJson(list)
                     #jsonデータ書き込み
                     json.dump(make, f, indent=2, ensure_ascii=False)
-                    f.write(',')
+                    #f.write(',')
+                    if list_count <= 1  and team_count >= len(team_list) - 1:
+                        f.write(']')
+                    else:
+                        f.write(',')
                     #１列の最大数デクリメント
                     list_count = list_count - 1
-                    
+
             #列の残りをブランクで埋める
             for i in range(list_count):
                 json.dump(new_data,f, indent=2, ensure_ascii=False)
@@ -1753,8 +1799,7 @@ def debug_ctl_get(lpass,lsect,ltxt):
         "./teams_data/WorkData_temp_34.json",
         "./teams_data/WorkData_temp_35.json",
         "./teams_data/WorkData_temp_36.json",
-        "./teams_data/WorkData_temp_37.json",
-        "./teams_data/WorkData_temp_39.json"
+        "./teams_data/WorkData_temp_37.json"
     ]
     work_path = [
         R""+ global_cloud_dir + "share_data/",
