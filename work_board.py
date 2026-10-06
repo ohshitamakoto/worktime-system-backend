@@ -168,10 +168,14 @@ def makeDisplayJson(j_str):
         if "西方 友美" in sp_name:
             j_str["state"]["Value"] = j_str["state"]["Value"] + "（大阪転勤）"
             ##j_str["work_s_time"] = ""
+        if "加賀谷 文明" in sp_name:
+            if "定禅寺" in j_str["state"]["Value"]:
+                j_str["state"]["Value"] = j_str["state"]["Value"] + "（出社）"
+            ##j_str["work_s_time"] = ""
         ##if "高橋 寛" in sp_name:
         ##    j_str["state"]["Value"] = "退勤"
         ##    j_str["work_s_time"] = ""
-        if "鈴木 泰祐" in sp_name:
+        if "沼澤 友喜" in sp_name:
             j_str["state"]["Value"] = "退勤"
             j_str["work_s_time"] = ""
         if "村松 寿" in sp_name:
@@ -257,8 +261,9 @@ def get_work_50():
         get_work(file_json,"36")
         file_json_1 = "./teams_data/WorkData_temp_35.json"
         file_json_2 = "./teams_data/WorkData_temp_36.json"
+        file_json_3 = "./teams_data/WorkData_temp_30.json"
         combined_json = "./teams_data/WorkData_temp_50.json"
-        return combine_sect_json(file_json_1, file_json_2, combined_json)
+        return combine_sect_json(file_json_1, file_json_2, file_json_3, combined_json)
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -267,21 +272,26 @@ def get_work_50():
         lstate = json_analyze(switch)
         if switch["num"] >= 42:
             lnum = switch["num"] - 14
-            if switch["num"] == 49:
-                lnum = 1
             if switch["num"] == 50:
-                lnum = 9
-            ret = post_kintai_state("36",lnum,lstate)
+                lnum = 1
+            #if switch["num"] == 51:
+            #    lnum = 9
+            if switch["num"] == 49:
+                lnum = 2
+                ret = post_kintai_state("30",lnum,lstate)
+            else:
+                ret = post_kintai_state("36",lnum,lstate)
         else:
             ret = post_kintai_state("35",switch["num"],lstate)
         
         file_json_1 = "./teams_data/WorkData_temp_35.json"
         file_json_2 = "./teams_data/WorkData_temp_36.json"
+        file_json_3 = "./teams_data/WorkData_temp_30.json"
         combined_json = "./teams_data/WorkData_temp_50.json"
-        return combine_sect_json(file_json_1, file_json_2, combined_json)
+        return combine_sect_json(file_json_1, file_json_2, file_json_3, combined_json)
         #return ret
 
-def combine_sect_json(output_file_1, output_file_2, output_file):
+def combine_sect_json(output_file_1, output_file_2, output_file_3, output_file):
     combined_data = ""
     lout_file = output_file
     # JSONファイルを読み込み
@@ -292,6 +302,7 @@ def combine_sect_json(output_file_1, output_file_2, output_file):
             for list, has_more in lookahead(data):
                 json.dump(list, output_file, indent=2, ensure_ascii=False)
                 output_file.write(',')
+
         with open(output_file_2, 'r', encoding='utf-8') as file:
             data = json.load(file)
             data_t1 = data[1]
@@ -306,9 +317,15 @@ def combine_sect_json(output_file_1, output_file_2, output_file):
                 if(has_more):
                     output_file.write(',')
             output_file.write(',')
+            with open(output_file_3, 'r', encoding='utf-8') as file:
+                data = json.load(file)
+                data_t3 = data[2]
+                json.dump(data_t3, output_file, indent=2, ensure_ascii=False)
+                output_file.write(',')
             json.dump(data_t1, output_file, indent=2, ensure_ascii=False)
-            output_file.write(',')
-            json.dump(data_t2, output_file, indent=2, ensure_ascii=False)
+            #output_file.write(',')
+            #json.dump(data_t2, output_file, indent=2, ensure_ascii=False)
+
 
         output_file.write(']')
 
