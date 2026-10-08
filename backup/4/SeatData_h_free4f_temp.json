@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/07/23 19:30:00",
+  "state": "2026/10/02 17:30:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -275,8 +275,8 @@
   "sect": 1
 },{
   "name": "内藤雅之",
-  "state": "出社",
-  "substate": "-",
+  "state": "部分在宅",
+  "substate": "時間休",
   "sect": "24"
 },{
   "name": "Free",
@@ -324,8 +324,8 @@
   "substate": "-",
   "sect": "23"
 },{
-  "name": "Free",
-  "state": "-",
+  "name": "土田真誓",
+  "state": "出社",
   "substate": "-",
   "sect": "23"
 },{

@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/07/28 17:00:01",
+  "state": "2026/10/08 12:30:03",
   "substate": "-",
   "sect": "-"
 },{
@@ -274,10 +274,10 @@
   "substate": "",
   "sect": 1
 },{
-  "name": "内藤雅之",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "24"
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
@@ -339,15 +339,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "竹内秀典",
-  "state": "在宅申請",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "23"
+  "sect": "-"
 },{
-  "name": "内山英康",
-  "state": "出社",
-  "substate": "時間休",
-  "sect": "23"
+  "name": "Free",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",

@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/07/24 16:00:00",
+  "state": "2026/10/02 17:30:00",
   "substate": "-",
   "sect": "-"
 },{
@@ -65,7 +65,7 @@
   "sect": "-"
 },{
   "name": "鈴木良",
-  "state": "出社",
+  "state": "退勤(フ",
   "substate": "-",
   "sect": "34"
 },{
@@ -75,8 +75,8 @@
   "sect": "-"
 },{
   "name": "高橋宙人",
-  "state": "出社",
-  "substate": "-",
+  "state": "退勤",
+  "substate": "時間休",
   "sect": "34"
 },{
   "name": "熊谷拓人",
@@ -109,11 +109,6 @@
   "substate": "時間休",
   "sect": "34"
 },{
-  "name": "Free",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
-},{
   "name": "樋口真尋",
   "state": "出社",
   "substate": "-",
@@ -124,10 +119,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "酒井紀光",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
+},{
+  "name": "Free",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
 },{
   "name": "内線601",
   "state": "-",
@@ -186,13 +186,8 @@
 },{
   "name": "松本悠佑",
   "state": "出社",
-  "substate": "-",
+  "substate": "午前休",
   "sect": "34"
-},{
-  "name": "Free",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
@@ -209,7 +204,12 @@
   "substate": "-",
   "sect": "34"
 },{
-  "name": "青嶋一哲",
+  "name": "根本一輝",
+  "state": "出社",
+  "substate": "-",
+  "sect": "34"
+},{
+  "name": "稲葉成美",
   "state": "出社",
   "substate": "-",
   "sect": "34"
@@ -249,13 +249,13 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "Free",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
+  "name": "森優介",
+  "state": "退勤",
+  "substate": "時間休",
+  "sect": "34"
 },{
   "name": "尾上明秀",
-  "state": "出社",
+  "state": "退勤(フ",
   "substate": "-",
   "sect": "34"
 },{
