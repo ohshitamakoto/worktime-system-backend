@@ -23,6 +23,7 @@ chart_list = [
     [0, 0, 0, 0, 0]  #浜松ダミー
 ]
 
+
 app = Flask(__name__)
 
 def lookahead(iterable):
