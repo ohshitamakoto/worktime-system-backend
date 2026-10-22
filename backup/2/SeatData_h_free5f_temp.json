@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/10/06 18:30:00",
+  "state": "データ受信待ち",
   "substate": "-",
   "sect": "-"
 },{
@@ -204,13 +204,8 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "村松文浩",
-  "state": "退勤",
-  "substate": "-",
-  "sect": "24"
-},{
-  "name": "通路",
-  "state": "",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
   "sect": "-"
 },{
@@ -229,10 +224,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "加藤友美",
-  "state": "出社",
+  "name": "通路",
+  "state": "",
   "substate": "-",
-  "sect": "22"
+  "sect": "-"
+},{
+  "name": "Free",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -379,10 +379,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "木野村昌",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "22"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -424,10 +424,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "山口勝広",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -739,15 +739,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "沼倉寛",
-  "state": "退勤",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
-  "name": "小林誠",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -772,7 +772,7 @@
   "name": "Free",
   "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
@@ -789,10 +789,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "大原薫",
-  "state": "出社",
-  "substate": "時間休",
-  "sect": "24"
+  "name": "Free",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -864,10 +864,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "足立裕基",
-  "state": "退勤",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "24"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -884,10 +884,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "鈴木創",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "22"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -974,10 +974,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "佐貫毎哉",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "22"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",

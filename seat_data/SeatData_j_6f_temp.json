@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/10/08 15:00:03",
+  "state": "データ受信待ち",
   "substate": "-",
   "sect": "-"
 },{
@@ -8,6 +8,566 @@
   "state": "",
   "substate": "-",
   "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "実験",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "鈴木哲治",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "派(伊藤",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "佐藤克文",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "実験",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "坂野要輔",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "柱",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "加藤諒",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "大津修平",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "派(白田",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "山崎明彦",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "鈴木泰祐",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "笹原俊之",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "柳川純一",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "実験",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "伊藤博重",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "笹本諒",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "内田翔梧",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "細田奈央",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "柱",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "森下匠",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "伊藤治",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "鈴木孝征",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "柱",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "森島公一",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "内海智英",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "山本修",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "佐々木雄",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "派(渡部",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "柴田崇斗",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "山田洸輔",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "実験",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "藤村律希",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "河野充",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "宗田拓真",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "高橋直樹",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "富樫基",
+  "state": "出社",
+  "substate": "-",
+  "sect": 36
+},{
+  "name": "南部貴行",
+  "state": "出社",
+  "substate": "-",
+  "sect": 36
+},{
+  "name": "派(阿部",
+  "state": "-",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "沼澤友喜",
+  "state": "出社",
+  "substate": "-",
+  "sect": 35
+},{
+  "name": "実験",
+  "state": "-",
+  "substate": "-",
+  "sect": 36
+},{
+  "name": "川村圭司",
+  "state": "出社",
+  "substate": "-",
+  "sect": 36
 },{
   "name": "柱",
   "state": "",
@@ -34,365 +594,120 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
   "name": "柱",
   "state": "",
   "substate": "-",
   "sect": "-"
 },{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "今川保美",
+  "name": "佐藤仁司",
   "state": "出社",
   "substate": "-",
-  "sect": "22"
+  "sect": 35
 },{
-  "name": "原田博之",
-  "state": "出社",
-  "substate": "-",
-  "sect": "22"
-},{
-  "name": "川端敏久",
-  "state": "出社",
-  "substate": "-",
-  "sect": "22"
-},{
-  "name": "糀宏樹",
-  "state": "出社",
-  "substate": "-",
-  "sect": "22"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "柱",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "宮崎裕　",
-  "state": "出社",
-  "substate": "-",
-  "sect": "22"
-},{
-  "name": "松本亮太",
-  "state": "出社",
-  "substate": "-",
-  "sect": "22"
-},{
-  "name": "派遣",
+  "name": "実験",
   "state": "-",
   "substate": "-",
-  "sect": "22"
+  "sect": 35
 },{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": "22"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "柱",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": "24"
-},{
-  "name": "濱野拓也",
+  "name": "鈴木規郎",
   "state": "出社",
   "substate": "-",
-  "sect": "24"
+  "sect": 35
 },{
-  "name": "村山圭",
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "Free",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "百留佳子",
   "state": "出社",
   "substate": "-",
-  "sect": "24"
+  "sect": 36
 },{
-  "name": "横長宏之",
+  "name": "実験",
+  "state": "-",
+  "substate": "-",
+  "sect": 36
+},{
+  "name": "板橋秀樹",
   "state": "出社",
   "substate": "-",
-  "sect": "24"
+  "sect": 36
 },{
-  "name": "谷口真一",
-  "state": "-",
-  "substate": "-",
-  "sect": "24"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "二井滉太",
+  "name": "柿崎博之",
   "state": "出社",
   "substate": "-",
-  "sect": 33
-},{
-  "name": "大村慶和",
-  "state": "出張(大",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
   "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "派遣",
-  "state": "-",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "松田和久",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "村井孝行",
-  "state": "出社(フ",
-  "substate": "-",
-  "sect": 33
 },{
   "name": "通路",
   "state": "",
@@ -404,279 +719,39 @@
   "substate": "",
   "sect": 0
 },{
-  "name": "柱",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "福岡将",
-  "state": "在宅勤務",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "柴田俊介",
-  "state": "在宅勤務",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "井上裕太",
-  "state": "出社(フ",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "志田全弘",
-  "state": "在宅勤務",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "北原崇",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "柱",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "泉桂子",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "寺田達哉",
-  "state": "出社(フ",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "中野聡",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "橋本宗之",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "33課",
-  "state": "",
-  "substate": "",
-  "sect": 33
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "穴田雅之",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "鈴木湧平",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "派遣",
+  "name": "Free",
   "state": "-",
   "substate": "-",
-  "sect": 33
+  "sect": "-"
 },{
-  "name": "早崎渉",
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "大下誠",
   "state": "出社",
   "substate": "-",
-  "sect": 33
+  "sect": 35
 },{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "派遣",
+  "name": "Free",
   "state": "-",
   "substate": "-",
-  "sect": 33
+  "sect": "-"
 },{
-  "name": "派遣",
+  "name": "Free",
   "state": "-",
   "substate": "-",
-  "sect": 33
+  "sect": "-"
 },{
-  "name": "渡辺智也",
+  "name": "本田祐輔",
   "state": "出社",
   "substate": "-",
-  "sect": 33
-},{
-  "name": "中嶋拓也",
-  "state": "在宅勤務",
-  "substate": "時間休",
-  "sect": 33
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "柱",
-  "state": "",
-  "substate": "-",
   "sect": "-"
 },{
   "name": "通路",
@@ -689,170 +764,35 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "福田博之",
-  "state": "出社",
-  "substate": "-",
-  "sect": "30"
-},{
-  "name": "寺田徹",
-  "state": "出社",
-  "substate": "-",
-  "sect": 37
-},{
-  "name": "花田法彦",
-  "state": "在宅勤務",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "松浦隼凪",
-  "state": "出社",
-  "substate": "-",
-  "sect": 33
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "柱",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "37課",
-  "state": "",
-  "substate": "",
-  "sect": 37
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "藤田功司",
-  "state": "出社",
-  "substate": "-",
-  "sect": 37
-},{
-  "name": "源田斗輝",
-  "state": "出社(フ",
-  "substate": "-",
-  "sect": 37
-},{
-  "name": "澤井薫",
-  "state": "出社",
-  "substate": "-",
-  "sect": 37
-},{
-  "name": "古川栞",
-  "state": "出社",
-  "substate": "-",
-  "sect": 37
-},{
-  "name": "林遼平",
-  "state": "出社",
-  "substate": "-",
-  "sect": 39
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "香林誠",
-  "state": "出社",
-  "substate": "-",
-  "sect": 39
-},{
-  "name": "戸田隆",
-  "state": "出社",
-  "substate": "-",
-  "sect": 39
-},{
-  "name": "徳田憲治",
-  "state": "出社",
-  "substate": "-",
-  "sect": 39
-},{
-  "name": "派遣",
+  "name": "Free",
   "state": "-",
   "substate": "-",
-  "sect": 39
+  "sect": "-"
 },{
-  "name": "瀧本裕也",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": 39
+  "sect": "-"
 },{
-  "name": "39課",
-  "state": "",
-  "substate": "",
-  "sect": 39
+  "name": "BOX",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
 },{
-  "name": "入口",
+  "name": "通路",
   "state": "",
-  "substate": "",
-  "sect": 0
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -903,81 +843,6 @@
   "state": "",
   "substate": "-",
   "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "フリアド",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "フリアド",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "フリアド",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "フリアド",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "柱",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "フリアド",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "フリアド",
-  "state": "-",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "宮西克也",
-  "state": "-",
-  "substate": "-",
-  "sect": "管理"
-},{
-  "name": "浅井豊",
-  "state": "-",
-  "substate": "-",
-  "sect": "管理"
 },{
   "name": "通路",
   "state": "",

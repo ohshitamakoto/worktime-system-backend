@@ -36,46 +36,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
-},{
-  "name": {
-    "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-    "Claims": "i:0#.f|membership|ikeda.masakey@jp.panasonic.com",
-    "DisplayName": "池田 正樹",
-    "Email": "ikeda.masakey@jp.panasonic.com",
-    "Picture": "https://jppanasonic.sharepoint.com/sites/TCS-PSNRD-/_layouts/15/UserPhoto.aspx?Size=L&AccountName=ikeda.masakey@jp.panasonic.com",
-    "Department": "（株）ＰＳＮ開発研究　ＡＩソリューション部　技術３１課",
-    "JobTitle": null
-  },
-  "state": {
-    "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "出社"
-  },
-  "team": {
-    "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": -1,
-    "Value": "31."
-  },
-  "flex": {
-    "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 1,
-    "Value": "無"
-  },
-  "time_off": {
-    "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "-"
-  },
-  "work_s_time": "9:00",
-  "work_e_time": "",
-  "home_s_time": null,
-  "home_e_time": null,
-  "flex_s_time": null,
-  "flex_e_time": null,
-  "time_off_s_time": null,
-  "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -114,7 +75,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -129,7 +90,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -144,7 +105,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -159,7 +120,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -174,7 +135,22 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
+},{
+  "name": "None",
+  "state": "None",
+  "team": "None",
+  "flex": "None",
+  "time_off": "None",
+  "work_s_time": null,
+  "work_e_time": null,
+  "home_s_time": null,
+  "home_e_time": null,
+  "flex_s_time": null,
+  "flex_e_time": null,
+  "time_off_s_time": null,
+  "time_off_e_time": null,
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -187,8 +163,8 @@
   },
   "state": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "出社"
+    "Id": 2,
+    "Value": "在宅勤務中"
   },
   "team": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -205,15 +181,15 @@
     "Id": 0,
     "Value": "-"
   },
-  "work_s_time": "9:00",
+  "work_s_time": "08:00",
   "work_e_time": "",
-  "home_s_time": null,
+  "home_s_time": "08:00",
   "home_e_time": null,
   "flex_s_time": null,
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -226,8 +202,8 @@
   },
   "state": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "出社"
+    "Id": 2,
+    "Value": "在宅勤務中"
   },
   "team": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -244,15 +220,15 @@
     "Id": 0,
     "Value": "-"
   },
-  "work_s_time": "9:00",
+  "work_s_time": "07:40",
   "work_e_time": "",
-  "home_s_time": null,
+  "home_s_time": "07:40",
   "home_e_time": null,
   "flex_s_time": null,
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -291,7 +267,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -330,7 +306,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -345,7 +321,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -360,7 +336,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -375,7 +351,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -414,7 +390,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -453,7 +429,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -492,7 +468,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -531,7 +507,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -546,7 +522,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -561,7 +537,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -576,7 +552,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -589,8 +565,8 @@
   },
   "state": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "出社"
+    "Id": 3,
+    "Value": "在宅終了"
   },
   "team": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -607,15 +583,15 @@
     "Id": 0,
     "Value": "-"
   },
-  "work_s_time": "9:00",
-  "work_e_time": "",
-  "home_s_time": null,
-  "home_e_time": null,
+  "work_s_time": "09:00",
+  "work_e_time": "12:30",
+  "home_s_time": "09:00",
+  "home_e_time": "12:30",
   "flex_s_time": null,
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -654,7 +630,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -667,8 +643,8 @@
   },
   "state": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "出社"
+    "Id": 2,
+    "Value": "在宅勤務中"
   },
   "team": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -685,15 +661,15 @@
     "Id": 0,
     "Value": "-"
   },
-  "work_s_time": "9:00",
+  "work_s_time": "07:30",
   "work_e_time": "",
-  "home_s_time": null,
+  "home_s_time": "07:30",
   "home_e_time": null,
   "flex_s_time": null,
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -732,7 +708,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -745,8 +721,8 @@
   },
   "state": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "出社"
+    "Id": 4,
+    "Value": "年休"
   },
   "team": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -763,15 +739,15 @@
     "Id": 0,
     "Value": "-"
   },
-  "work_s_time": "9:00",
+  "work_s_time": "",
   "work_e_time": "",
   "home_s_time": null,
   "home_e_time": null,
   "flex_s_time": null,
-  "flex_e_time": null,
+  "flex_e_time": "　",
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -786,7 +762,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -801,7 +777,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -840,7 +816,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -879,7 +855,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -892,8 +868,8 @@
   },
   "state": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-    "Id": 0,
-    "Value": "出社"
+    "Id": 2,
+    "Value": "在宅勤務中"
   },
   "team": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
@@ -910,15 +886,15 @@
     "Id": 0,
     "Value": "-"
   },
-  "work_s_time": "9:00",
+  "work_s_time": "09:00",
   "work_e_time": "",
-  "home_s_time": null,
+  "home_s_time": "09:00",
   "home_e_time": null,
   "flex_s_time": null,
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -957,7 +933,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": {
     "@odata.type": "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
@@ -996,7 +972,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1011,7 +987,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1026,7 +1002,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1041,7 +1017,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1056,7 +1032,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1071,7 +1047,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1086,7 +1062,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1101,7 +1077,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1116,7 +1092,7 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 },{
   "name": "None",
   "state": "None",
@@ -1131,5 +1107,5 @@
   "flex_e_time": null,
   "time_off_s_time": null,
   "time_off_e_time": null,
-  "get_time": "2026/10/03 16:00:03"
+  "get_time": "2026/07/29 13:30:01"
 }]

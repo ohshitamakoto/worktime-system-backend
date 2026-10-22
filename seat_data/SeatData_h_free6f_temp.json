@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/10/08 12:30:03",
+  "state": "データ受信待ち",
   "substate": "-",
   "sect": "-"
 },{
@@ -64,25 +64,25 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "鈴木良",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
   "substate": "-",
   "sect": "-"
 },{
-  "name": "高橋宙人",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
-  "name": "熊谷拓人",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "内線602",
   "state": "-",
@@ -104,15 +104,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "松本大輝",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
-  "name": "樋口真尋",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
@@ -124,10 +124,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "酒井紀光",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "内線601",
   "state": "-",
@@ -204,15 +204,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "田畑圭介",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
-  "name": "稲葉成美",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",
@@ -239,11 +239,6 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "野中大",
-  "state": "出社",
-  "substate": "-",
-  "sect": "34"
-},{
   "name": "Free",
   "state": "-",
   "substate": "-",
@@ -254,10 +249,15 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "尾上明秀",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "34"
+  "sect": "-"
+},{
+  "name": "Free",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
 },{
   "name": "通路",
   "state": "",

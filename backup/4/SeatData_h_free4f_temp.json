@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/10/02 17:30:00",
+  "state": "2026/10/08 12:30:03",
   "substate": "-",
   "sect": "-"
 },{
@@ -274,10 +274,10 @@
   "substate": "",
   "sect": 1
 },{
-  "name": "内藤雅之",
-  "state": "部分在宅",
-  "substate": "時間休",
-  "sect": "24"
+  "name": "Free",
+  "state": "-",
+  "substate": "-",
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",

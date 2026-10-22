@@ -1,6 +1,6 @@
 [{
   "name": "通路",
-  "state": "2026/10/08 12:30:03",
+  "state": "データ受信待ち",
   "substate": "-",
   "sect": "-"
 },{
@@ -74,10 +74,10 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "河田雅史",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "22"
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
@@ -224,10 +224,10 @@
   "substate": "",
   "sect": 1
 },{
-  "name": "渡邉真太",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "22"
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
@@ -314,20 +314,20 @@
   "substate": "-",
   "sect": "-"
 },{
-  "name": "網江正樹",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "23"
+  "sect": "-"
 },{
-  "name": "山田瑛翔",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "23"
+  "sect": "-"
 },{
-  "name": "土田真誓",
-  "state": "出社",
+  "name": "Free",
+  "state": "-",
   "substate": "-",
-  "sect": "23"
+  "sect": "-"
 },{
   "name": "Free",
   "state": "-",
@@ -464,55 +464,55 @@
   "substate": "-",
   "sect": "-"
 },{
+  "name": "大下誠",
+  "state": "出社",
+  "substate": "-",
+  "sect": "35"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
+  "name": "通路",
+  "state": "",
+  "substate": "-",
+  "sect": "-"
+},{
   "name": "Free",
   "state": "-",
   "substate": "-",
   "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "通路",
-  "state": "",
-  "substate": "-",
-  "sect": "-"
-},{
-  "name": "山本恭平",
-  "state": "出社",
-  "substate": "-",
-  "sect": "22"
 },{
   "name": "通路",
   "state": "",

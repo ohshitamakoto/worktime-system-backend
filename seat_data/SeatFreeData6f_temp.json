@@ -1,0 +1,380 @@
+[
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "柱",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "内線602",
+    "state": "",
+    "substate": "",
+    "sect": 1
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "内線601",
+    "state": "",
+    "substate": "",
+    "sect": 1
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "柱",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "入口",
+    "state": "-",
+    "substate": "-",
+    "sect": "0"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "Free",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "柱",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  },
+  {
+    "name": "通路",
+    "state": "-",
+    "substate": "-",
+    "sect": "-"
+  }
+]

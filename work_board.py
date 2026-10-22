@@ -1,9 +1,12 @@
-from flask import Flask, render_template, request,make_response
+from flask import Flask, Response, render_template, request, make_response, stream_with_context
 from flask import request, make_response, jsonify
 import json
 from  datetime import datetime, timedelta
 import os
 import shutil
+import threading
+import time
+from functools import wraps
 from dotenv import load_dotenv
 load_dotenv()
 global_time_s = os.getenv('G_TIME_S')
@@ -25,6 +28,98 @@ chart_list = [
 
 
 app = Flask(__name__)
+work_data_lock = threading.RLock()
+
+def serialize_work_data_access(function):
+    @wraps(function)
+    def wrapped(*args, **kwargs):
+        with work_data_lock:
+            return function(*args, **kwargs)
+    return wrapped
+
+update_condition = threading.Condition()
+update_revision = 0
+watcher_lock = threading.Lock()
+watcher_started = False
+
+def publish_update():
+    global update_revision
+    with update_condition:
+        update_revision += 1
+        update_condition.notify_all()
+
+def get_shared_data_snapshot():
+    if not global_cloud_dir:
+        return {}
+
+    snapshot = {}
+    shared_data_dir = os.path.join(global_cloud_dir, "share_data")
+    for directory, _, filenames in os.walk(shared_data_dir):
+        for filename in filenames:
+            if filename == "dumy2.txt":
+                continue
+            path = os.path.join(directory, filename)
+            try:
+                file_stat = os.stat(path)
+            except OSError:
+                continue
+            snapshot[path] = (file_stat.st_mtime_ns, file_stat.st_size)
+    return snapshot
+
+def watch_shared_data():
+    previous_snapshot = get_shared_data_snapshot()
+    while True:
+        time.sleep(1)
+        current_snapshot = get_shared_data_snapshot()
+        if current_snapshot != previous_snapshot:
+            previous_snapshot = current_snapshot
+            publish_update()
+
+def start_shared_data_watcher():
+    global watcher_started
+    with watcher_lock:
+        if not watcher_started:
+            watcher_started = True
+            threading.Thread(target=watch_shared_data, daemon=True).start()
+
+@app.route("/events", methods=["GET"])
+def stream_updates():
+    start_shared_data_watcher()
+
+    @stream_with_context
+    def generate_events():
+        last_event_id = request.headers.get("Last-Event-ID")
+        with update_condition:
+            last_revision = update_revision
+            if last_event_id:
+                try:
+                    last_revision = min(int(last_event_id), update_revision)
+                except ValueError:
+                    pass
+
+        while True:
+            with update_condition:
+                changed = update_condition.wait_for(
+                    lambda: update_revision != last_revision,
+                    timeout=20,
+                )
+                current_revision = update_revision
+
+            if changed:
+                last_revision = current_revision
+                yield f"id: {current_revision}\nevent: refresh\ndata: {current_revision}\n\n"
+            else:
+                yield ": keep-alive\n\n"
+
+    return Response(
+        generate_events(),
+        mimetype="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",
+            "Connection": "keep-alive",
+        },
+    )
 
 def lookahead(iterable):
     it = iter(iterable)
@@ -292,6 +387,7 @@ def get_work_50():
         return combine_sect_json(file_json_1, file_json_2, file_json_3, combined_json)
         #return ret
 
+@serialize_work_data_access
 def combine_sect_json(output_file_1, output_file_2, output_file_3, output_file):
     combined_data = ""
     lout_file = output_file
@@ -569,38 +665,38 @@ def get_work_content():
 @app.route("/seat", methods=['GET'])
 def get_work_seat():
     file_json = R""+ global_cloud_dir + "share_data/seatinfo/sendai_zaseki3f.json"
-    return get_seat_info(file_json,'./SeatData_s_3f_temp.json',"./teams_data/jointData_SendaiSeat_3f.json",0)
+    return get_seat_info(file_json,'./seat_data/SeatData_s_3f_temp.json')
 #仙台拠点2F
 @app.route("/seat_s_2f", methods=['GET'])
 def get_work_seat_s2f():
     file_json = R""+ global_cloud_dir + "share_data/seatinfo/sendai_zaseki2f.json"
-    return get_seat_info(file_json,'./SeatData_s_2f_temp.json',"./teams_data/jointData_SendaiSeat_2f.json",1)
+    return get_seat_info(file_json,'./seat_data/SeatData_s_2f_temp.json')
 #仙台定禅寺オフィス
 @app.route("/seat_j", methods=['GET'])
 def get_work_seat_j():
     file_json = R""+ global_cloud_dir + "share_data/seatinfo/jozenji_zaseki6f.json"
-    return get_seat_info(file_json,'./SeatData_j_6f_temp.json',"./teams_data/jointData_JozenjiSeat_6f.json",4)
+    return get_seat_info(file_json,'./seat_data/SeatData_j_6f_temp.json')
 #金沢駅側7F
 @app.route("/seat_k_7fs2", methods=['GET'])
 def get_work_seat_k7fs2():
     file_json = R""+ global_cloud_dir + "share_data/seatinfo/kanazawa_zaseki_7fs.json"
-    return get_seat_info(file_json,'./SeatData_k_7fs_temp.json',"./teams_data/jointData_KanazawaSeat_7fs.json",2)
+    return get_seat_info(file_json,'./seat_data/SeatData_k_7fs_temp.json')
 #金沢県庁側7F
 @app.route("/seat_k_7fp2", methods=['GET'])
 def get_work_seat_k7fp2():
     file_json = R""+ global_cloud_dir + "share_data/seatinfo/kanazawa_zaseki_7fp.json"
-    return get_seat_info(file_json,'./SeatData_k_7fp_temp.json',"./teams_data/jointData_KanazawaSeat_7fp.json",3)
+    return get_seat_info(file_json,'./seat_data/SeatData_k_7fp_temp.json')
 
 @app.route("/seat_h", methods=['GET'])
 def get_work_seat_h():
     file_json = R""+ global_cloud_dir + "share_data/h_zaseki.json"
-    return get_seat_info(file_json,'./SeatData_h_temp.json',"./teams_data/KanazawaSeatData_h.json",8)
+    return get_seat_info(file_json,'./seat_data/SeatData_h_temp.json')
 #浜松4F
 @app.route("/seat_h_free4f", methods=['GET', "POST"])
 def get_work_seat_h_free4f():
     if request.method == "GET":
         #make_freeseat_data("","","RESET4F","","")
-        return get_seat_info('./SeatFreeData4f_temp.json','./SeatData_h_free4f_temp.json',"./teams_data/jointData_Hamamatsu_4f.json",5)
+        return get_seat_info('./seat_data/SeatFreeData4f_temp.json','./seat_data/SeatData_h_free4f_temp.json')
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -609,13 +705,13 @@ def get_work_seat_h_free4f():
         lname = lname.replace(' ','')
         lsect = switch["sect"]
         lno = int(switch["no"])
-        return make_freeseat_data('./SeatFreeData4f_temp.json',lsect,"POST",lname,lno)
+        return make_freeseat_data('./seat_data/SeatFreeData4f_temp.json',lsect,"POST",lname,lno)
 #浜松5F
 @app.route("/seat_h_free5f", methods=['GET', "POST"])
 def get_work_seat_h_free5f():
     if request.method == "GET":
         #make_freeseat_data("","","RESET5F","","")
-        return get_seat_info('./SeatFreeData5f_temp.json','./SeatData_h_free5f_temp.json',"./teams_data/jointData_Hamamatsu_5f.json",6)
+        return get_seat_info('./seat_data/SeatFreeData5f_temp.json','./seat_data/SeatData_h_free5f_temp.json')
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -624,13 +720,13 @@ def get_work_seat_h_free5f():
         lname = lname.replace(' ','')
         lsect = switch["sect"]
         lno = int(switch["no"])
-        return make_freeseat_data('./SeatFreeData5f_temp.json',lsect,"POST",lname,lno)
+        return make_freeseat_data('./seat_data/SeatFreeData5f_temp.json',lsect,"POST",lname,lno)
 #浜松6F
 @app.route("/seat_h_free6f", methods=['GET', "POST"])
 def get_work_seat_h_free6f():
     if request.method == "GET":
         #make_freeseat_data("","","RESET6F","","")
-        return get_seat_info('./SeatFreeData6f_temp.json','./SeatData_h_free6f_temp.json',"./teams_data/jointData_Hamamatsu_6f.json",7)
+        return get_seat_info('./seat_data/SeatFreeData6f_temp.json','./seat_data/SeatData_h_free6f_temp.json')
     else:
         switch = request.data.decode('utf-8')  # デコード
         switch = json.loads(switch)
@@ -639,7 +735,7 @@ def get_work_seat_h_free6f():
         lname = lname.replace(' ','')
         lsect = switch["sect"]
         lno = int(switch["no"])
-        return make_freeseat_data('./SeatFreeData6f_temp.json',lsect,"POST",lname,lno)
+        return make_freeseat_data('./seat_data/SeatFreeData6f_temp.json',lsect,"POST",lname,lno)
 
 @app.route("/qwerty/debug", methods=['GET', "POST"])
 def kintai_debug():
@@ -770,6 +866,7 @@ def get_environment():
     return jsonify({"result": "ok"})
 
 
+@serialize_work_data_access
 def post_kintai_state(sect, id, w_st):
     #変換用のJSONファイル名設定
     file_json = './teams_data/WorkData_temp_' + sect + '.json'
@@ -811,19 +908,24 @@ def post_kintai_state(sect, id, w_st):
         #print(name,":",state,"->",new_state,time)
         dict_src_json[id]["state"]["Value"] = new_state
 
-        set_time = dict_src_json[id]["work_e_time"]
-
-        if time == "" and "在宅終了" in set_time:
-            time = dict_src_json[id]["home_e_time"] + "(在宅終了)～"
-            set_time = ""
-        if time != "" and "在宅終了" in set_time:
-            dict_src_json[id]["work_e_time"] = dict_src_json[id]["work_e_time"] + time
-        if set_time == "" or "." in set_time:
-            dict_src_json[id]["work_e_time"] = time
+        set_time = dict_src_json[id].get("work_e_time")
+        if time:
+            if isinstance(set_time, str) and "在宅終了" in set_time:
+                dict_src_json[id]["work_e_time"] = set_time + time
+            else:
+                dict_src_json[id]["work_e_time"] = time
+        elif isinstance(set_time, str) and "在宅終了" in set_time:
+            home_end_time = dict_src_json[id].get("home_e_time")
+            dict_src_json[id]["work_e_time"] = (
+                home_end_time + "(在宅終了)～" if home_end_time else ""
+            )
+        elif set_time is None or (isinstance(set_time, str) and "." in set_time):
+            dict_src_json[id]["work_e_time"] = ""
 
 
         with open(file_json, "w", encoding='utf-8') as f:
             json.dump(dict_src_json, f, indent=4, ensure_ascii=False)
+        publish_update()
 
     #更新JSONデータを返却
     fp_zaseki = open (file_json,encoding='utf-8')
@@ -877,9 +979,10 @@ def set_work_content(path,lmsg,ltenki):
     fp_in.write('}]')    #JSON開始
     fp_in.close()
 
+    publish_update()
     return make_response(jsonify(dict_src))
 
-def get_seat_info(path, tmp_path, out_f, place_num):
+def get_seat_info(path, tmp_path):
     #チャート用集計リスト初期化
     #for x in range(5):
     #    chart_list[place_num][x] = 0
@@ -954,11 +1057,12 @@ def get_seat_info(path, tmp_path, out_f, place_num):
                    "./teams_data/WorkData_temp_23.json",
                    "./teams_data/WorkData_temp_24.json"]
     #output_file = "./teams_data/SendaiSeatData.json"
-    output_file = out_f
+    #output_file = "./teams_data/jointData_SendaiSeat.json"
+    output_file = "./teams_data/jointData_PsnrdSeat.json"
     combine_json_files(input_files, output_file)
-    src_path = output_file
-    dst_path = "./teams_data/jointData_PsnrdSeat.json"
-    shutil.copy(src_path,dst_path)
+    #src_path = output_file
+    #dst_path = "./teams_data/jointData_PsnrdSeat.json"
+    #shutil.copy(src_path,dst_path)
     #print("OK--------")
     #仙台座席用JSON読み込み
     file_json = output_file
@@ -1027,14 +1131,14 @@ def get_seat_info(path, tmp_path, out_f, place_num):
 
 ##情報収集簡易版
 def get_chart_info():
-    input_files = ["./SeatData_s_3f_temp.json",
-                "./SeatData_s_2f_temp.json",
-                "./SeatData_k_7fs_temp.json",
-                "./SeatData_k_7fp_temp.json",
-                "./SeatData_j_6f_temp.json",
-                "./SeatData_h_free4f_temp.json",
-                "./SeatData_h_free5f_temp.json",
-                "./SeatData_h_free6f_temp.json"]
+    input_files = ["./seat_data/SeatData_s_3f_temp.json",
+                "./seat_data/SeatData_s_2f_temp.json",
+                "./seat_data/SeatData_k_7fs_temp.json",
+                "./seat_data/SeatData_k_7fp_temp.json",
+                "./seat_data/SeatData_j_6f_temp.json",
+                "./seat_data/SeatData_h_free4f_temp.json",
+                "./seat_data/SeatData_h_free5f_temp.json",
+                "./seat_data/SeatData_h_free6f_temp.json"]
 
     #チャート用集計リスト初期化
     for x in range(5):
@@ -1210,13 +1314,14 @@ def make_freeseat_data(path,sect,kind,name,no):
         with open(path, "w") as json_file:
             json.dump(dict_src_json, json_file, indent=4)
         make_response(jsonify(dict_src_json))
+        publish_update()
         return "OK"
     elif kind == "RESET": #RESET
         # sahreフォルダの座席情報から当日の座席情報を作成
         # 浜松4Fベースデータ作成
         print("RESET",path)
         path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki4f.json"
-        file_json = './SeatFreeData4f_temp.json'
+        file_json = './seat_data/SeatFreeData4f_temp.json'
         try:
             shutil.copy(path,file_json)
         except FileNotFoundError:
@@ -1224,7 +1329,7 @@ def make_freeseat_data(path,sect,kind,name,no):
 
         # 浜松5Fベースデータ作成
         path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki5f.json"
-        file_json = './SeatFreeData5f_temp.json'
+        file_json = './seat_data/SeatFreeData5f_temp.json'
         try:
             shutil.copy(path,file_json)
         except FileNotFoundError:
@@ -1232,7 +1337,7 @@ def make_freeseat_data(path,sect,kind,name,no):
 
         # 浜松6Fベースデータ作成
         path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki6f.json"
-        file_json = './SeatFreeData6f_temp.json'
+        file_json = './seat_data/SeatFreeData6f_temp.json'
         try:
             shutil.copy(path,file_json)
         except FileNotFoundError:
@@ -1241,7 +1346,7 @@ def make_freeseat_data(path,sect,kind,name,no):
         # sahreフォルダの座席情報から当日の座席情報を作成
         print("RESET",path)
         path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki4f.json"
-        file_json = './SeatFreeData4f_temp.json'
+        file_json = './seat_data/SeatFreeData4f_temp.json'
         try:
             shutil.copy(path,file_json)
         except FileNotFoundError:
@@ -1250,7 +1355,7 @@ def make_freeseat_data(path,sect,kind,name,no):
         # sahreフォルダの座席情報から当日の座席情報を作成
         # 浜松5Fベースデータ作成
         path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki5f.json"
-        file_json = './SeatFreeData5f_temp.json'
+        file_json = './seat_data/SeatFreeData5f_temp.json'
         try:
             shutil.copy(path,file_json)
         except FileNotFoundError:
@@ -1259,7 +1364,7 @@ def make_freeseat_data(path,sect,kind,name,no):
         # sahreフォルダの座席情報から当日の座席情報を作成
         # 浜松6Fベースデータ作成
         path = R""+ global_cloud_dir + "share_data/seatinfo/hamamatsu_zaseki6f.json"
-        file_json = './SeatFreeData6f_temp.json'
+        file_json = './seat_data/SeatFreeData6f_temp.json'
         try:
             shutil.copy(path,file_json)
         except FileNotFoundError:
@@ -1424,6 +1529,7 @@ file_state_reset = ["-","-","-","-","-","-","-","-","-","-",
 sect_dat = [10,11,14,15,20,21,22,23,24,30,31,32,33,34,35,36,37,38]
 ### TeamsのJSONファイルを取得し、表示用のJSONファイルに変換して返却
 ###
+@serialize_work_data_access
 def get_work(path,no):
     info_file_state = "no"
     state_reset = "no"
@@ -1511,6 +1617,7 @@ def get_work(path,no):
         return make_response(jsonify(dict_old))
 
     print("Renewal work data",no)
+    dict_old_json = []
     if(info_file_state != "error"):
         #ファイル時間更新
         file_update_time[ int(no)] = str(d)
@@ -1576,6 +1683,17 @@ def get_work(path,no):
         except json.JSONDecodeError as e:
             print("teams JSON ファイル読み込みエラー")
 
+    old_data_by_identity = {}
+    for old_record in dict_old_json:
+        old_name_data = old_record.get("name")
+        old_team_data = old_record.get("team")
+        if isinstance(old_name_data, dict) and isinstance(old_team_data, dict):
+            identity = (
+                old_name_data.get("DisplayName"),
+                old_team_data.get("Value"),
+            )
+            old_data_by_identity.setdefault(identity, []).append(old_record)
+
     #表示用JSONファイル作成
     f_flg = 0
     json_date = ""
@@ -1638,9 +1756,8 @@ def get_work(path,no):
     
     #日付が変わったらリセット
     if(state_reset == "no"):
-        
+
         ##旧作成済みファイルの状態を反映
-        cnt = 0
         for list, has_more in lookahead(dict_dst_json2):
             #新表示データ
             state = list['state']
@@ -1650,9 +1767,18 @@ def get_work(path,no):
                 state = list["state"]["Value"]
                 name = list["name"]["DisplayName"]
                 e_time = list["work_e_time"]
+                team_data = list.get("team")
+                team = team_data.get("Value") if isinstance(team_data, dict) else None
+                old_records = old_data_by_identity.get((name, team), [])
+                old_record = old_records.pop(0) if old_records else None
 
                 #JSON更新ない場合の異常処理
-                tmp_old_state = dict_old_json[cnt]["state"]["Value"]
+                old_state_data = old_record.get("state") if old_record else None
+                tmp_old_state = (
+                    old_state_data.get("Value")
+                    if isinstance(old_state_data, dict)
+                    else ""
+                )
                 if json_update == "ng":
                     if "出社勤務中" in tmp_old_state or "退勤" in tmp_old_state:
                         list["state"]["Value"] = tmp_old_state
@@ -1672,15 +1798,21 @@ def get_work(path,no):
 
 
                 #旧表示データ
-                old_name = ""
-                old_time = ""
-                old_state = ""
-                if info_file_state == "no" and len(dict_old_json) > cnt:
-                    old_state = dict_old_json[cnt]["state"]["Value"]
-                    old_name = dict_old_json[cnt]["name"]["DisplayName"]
-                    old_time = dict_old_json[cnt]["work_e_time"]
+                old_name_data = old_record.get("name") if old_record else None
+                old_state_data = old_record.get("state") if old_record else None
+                old_name = (
+                    old_name_data.get("DisplayName")
+                    if isinstance(old_name_data, dict)
+                    else ""
+                )
+                old_state = (
+                    old_state_data.get("Value")
+                    if isinstance(old_state_data, dict)
+                    else ""
+                )
+                old_time = old_record.get("work_e_time", "") if old_record else ""
                 #出社状態の場合、旧データを反映
-                if "出社" in state and name == old_name and json_update == "ok":
+                if "出社" in state and json_update == "ok":
                     if "出社勤務中" in old_state:
                         new_state = state.replace('出社','出社勤務中')
                     elif "退勤" in old_state:
@@ -1688,11 +1820,18 @@ def get_work(path,no):
                     else:
                         new_state = state
                     list["state"]["Value"] = new_state
+                #退勤済みならローカルの退勤時刻を優先する
+                if (
+                    json_update == "ok"
+                    and name == old_name
+                    and isinstance(old_time, str)
+                    and old_time.endswith(".")
+                ):
+                    list["work_e_time"] = old_time
                 #終了時刻が空白の場合、旧データを反映
-                if e_time == "" and json_update == "ok":
+                elif e_time == "" and json_update == "ok":
                     list["work_e_time"] = old_time
 
-            cnt = cnt + 1
         ##状態を更新したファイルに更新
         with open(file_name, "w", encoding='utf-8') as f:
             json.dump(dict_dst_json2, f, indent=4, ensure_ascii=False)
@@ -1719,11 +1858,11 @@ def get_work(path,no):
                 make_freeseat_data("","","RESET","","") #フリー座席リセット
                 ##座席表バックアップ
                 dst_path = './backup/' + str(last_cnt)
-                src_path = './SeatData_h_free4f_temp.json'
+                src_path = './seat_data/h_free4f_temp.json'
                 shutil.copy(src_path, dst_path)
-                src_path = './SeatData_h_free5f_temp.json'
+                src_path = './seat_data/SeatData_h_free5f_temp.json'
                 shutil.copy(src_path, dst_path)
-                src_path = './SeatData_h_free6f_temp.json'
+                src_path = './seat_data/SeatData_h_free6f_temp.json'
                 shutil.copy(src_path, dst_path)
             if last_cnt > 5:
                 last_cnt = 1
